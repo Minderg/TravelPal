@@ -1,0 +1,168 @@
+﻿<Window x:Class="TravelPal.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TravelPal"
+        mc:Ignorable="d"
+        Title="TravelPal" Height="450" Width="800">
+    <Grid Margin="-18,0,18,0">
+        <Grid.Background>
+            <ImageBrush ImageSource="/Images/TravelImage.jpeg"/>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <!--Rubrik-->
+        <Label 
+            Grid.Column="2"
+            Grid.ColumnSpan="3"
+            Grid.Row="1"
+            Grid.RowSpan="2"
+            Content="Travel Pal"
+            FontSize="50"
+            Foreground="MintCream"
+            FontWeight="Bold"
+            VerticalContentAlignment="Center"
+            HorizontalContentAlignment="Center"
+            FontFamily="Arial"
+            />
+        
+        <!--User-->
+        <Label 
+            Grid.Column="2"
+            Grid.Row="3"
+            Content="UserName"
+            FontSize="18"
+            Foreground="MintCream"
+            FontWeight="Bold"
+            HorizontalContentAlignment="Center"
+            VerticalContentAlignment="Center"
+            FontFamily="Arial"
+            />
+        <Label 
+            Grid.Column="2"
+            Grid.Row="4"
+            Content="Password"
+            FontSize="18"
+            Foreground="MintCream"
+            FontWeight="Bold"
+            HorizontalContentAlignment="Center"
+            VerticalContentAlignment="Center"
+            FontFamily="Arial"
+            />
+
+        <!--User Input-->
+        <TextBox
+            Name="txtUsername"
+            BorderThickness="1.5"
+            BorderBrush="MintCream"
+            Grid.Column="3"
+            Grid.Row="3"
+            VerticalContentAlignment="Center"
+            Height="30"
+            FontFamily="Arial" 
+            Opacity="0.7">
+            <TextBox.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </TextBox.Resources>
+        </TextBox>
+        <Border
+            Name="pswPassword"
+            BorderThickness="1.5"
+            BorderBrush="MintCream"
+            Grid.Column="3"
+            Grid.Row="4"
+            Height="30"
+            CornerRadius="10"
+            Background="MintCream"
+            Opacity="0.7">
+            <PasswordBox 
+                VerticalContentAlignment="Center"
+                FontFamily="Arial" 
+                Opacity="0.7"
+                BorderThickness="0">
+            </PasswordBox>
+        </Border>
+
+
+
+        <!--Sign In-->
+        <Button
+            Name="btnSignIn"
+            Grid.Column="3"
+            Grid.Row="5"
+            Content="Sign In"
+            FontFamily="Arial"
+            Margin="18"
+            Click="btnSignIn_Click"
+            Opacity="0.7">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+
+        <!--Join Us-->
+        <Label 
+            Grid.Column="5"
+            Grid.ColumnSpan="2"
+            Grid.Row="0"
+            Content="Join Us Today!"
+            Foreground="MintCream"
+            VerticalContentAlignment="Center"
+            HorizontalContentAlignment="Center"
+            FontSize="18"
+            FontFamily="Arial"
+            />
+        <Label 
+            Grid.Column="5"
+            Grid.Row="1"
+            Grid.ColumnSpan="2"
+            Foreground="MintCream"
+            Content="To Find Your Dream Place"
+            VerticalContentAlignment="Center"
+            FontSize="18"
+            FontFamily="Arial"
+            />
+        
+        <!--Register-->
+        <Button 
+            Name="btnRegister"
+            Grid.Column="5"
+            Grid.ColumnSpan="2"
+            Grid.Row="2"
+            Width="90"
+            Content="Register"
+            FontFamily="Arial"
+            Margin="18"
+            Click="btnRegister_Click"
+            Opacity="0.7">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+    </Grid>
+</Window>
