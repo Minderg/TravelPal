@@ -48,7 +48,8 @@
             HorizontalContentAlignment="Center"
             Foreground="Black"
             />
-
+        
+        <!--User Details-->
         <Label 
             Grid.Column="0"
             Grid.Row="0"
