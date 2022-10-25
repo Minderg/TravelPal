@@ -7,6 +7,12 @@
         mc:Ignorable="d"
         Title="TravelsWindow" Height="450" Width="800" Background="MintCream">
     <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF57C18C"/>
+                <GradientStop Color="MintCream" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
@@ -25,7 +31,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        
+
         <!--Information-->
         <Label 
             Grid.Column="2"
@@ -38,7 +44,7 @@
             FontFamily="Arial"
             Foreground="Black"
             />
-        
+
         <!--Show User-->
         <Label 
             Grid.Column="6"
@@ -48,15 +54,40 @@
             HorizontalContentAlignment="Center"
             Foreground="Black"
             />
-        
+
         <!--User Details-->
-        <Label 
+        <Button 
             Grid.Column="0"
             Grid.Row="0"
             Content="User Details"
             VerticalContentAlignment="Center"
             HorizontalContentAlignment="Center"
-            FontSize="18"
+            FontSize="16"
+            Margin="10"
+            />
+
+        <!--List of Destinations-->
+        <ListView 
+            Grid.Column="2"
+            Grid.Row="2"
+            Grid.ColumnSpan="3"
+            Grid.RowSpan="3"
+            />
+
+        <!--Add Destination-->
+        <Button 
+            Grid.Column="2"
+            Grid.Row="5"
+            Content="Add Destination"
+            Margin="10"
+            />
+
+        <!--Reomve Destination-->
+        <Button 
+            Grid.Column="4"
+            Grid.Row="5"
+            Content="Remove Destination"
+            Margin="10"
             />
     </Grid>
 </Window>
