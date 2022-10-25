@@ -7,7 +7,7 @@ using System.Windows.Xps;
 
 namespace TravelPal.Travels
 {
-    public class Trip
+    public class Trip : Travel
     {
         //public Type TripType { get; set; }
 

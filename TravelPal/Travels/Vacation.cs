@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TravelPal.Travels
 {
-    public class Vacation
+    public class Vacation : Travel
     {
         public bool AllInclusive { get; set; }
 
