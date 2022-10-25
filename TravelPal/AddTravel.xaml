@@ -32,6 +32,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
+        <!--Information-->
         <Label 
             Grid.Column="2"
             Grid.Row="2"
@@ -65,7 +66,89 @@
         <Label 
             Grid.Column="2"
             Grid.Row="4"
-            
+            Content="Choose"
+            VerticalContentAlignment="Center"
+            HorizontalContentAlignment="Center"
+            FontSize="18"
+            FontFamily="Arial"
+            Foreground="MediumSlateBlue"
             />
+        
+        <!--User Input-->
+        <ComboBox 
+            Grid.Column="3"
+            Grid.Row="1"
+            Margin="20"
+            Width="74"
+            />
+        <TextBox
+            BorderThickness="1.5"
+            BorderBrush="MintCream"
+            Grid.Column="3"
+            Grid.Row="2"
+            VerticalContentAlignment="Center"
+            Height="30"
+            FontFamily="Arial" 
+            Opacity="0.7">
+            <TextBox.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </TextBox.Resources>
+        </TextBox>
+        <TextBox
+            BorderThickness="1.5"
+            BorderBrush="MintCream"
+            Grid.Column="3"
+            Grid.Row="3"
+            VerticalContentAlignment="Center"
+            Height="30"
+            FontFamily="Arial" 
+            Opacity="0.7">
+            <TextBox.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </TextBox.Resources>
+        </TextBox>
+        <ComboBox 
+            Grid.Column="3"
+            Grid.Row="4"
+            Margin="20"
+            Width="74"
+            />
+        
+        <!--CheckBox if choosen Vacation-->
+        <CheckBox 
+            Grid.Column="4"
+            Grid.Row="4"
+            Content="All Inclusive"
+            VerticalContentAlignment="Center"
+            FontFamily="Arial"
+            Visibility="Hidden"
+            />
+
+        <!--CheckBox if choosen Trip-->
+        <ComboBox 
+            Grid.Column="4"
+            Grid.Row="4"
+            Margin="20"
+            Width="74"
+            Visibility="Hidden"
+            />
+        
+        <!--Save-->
+        <Button
+            Grid.Column="3"
+            Grid.Row="5"
+            Content="Save"
+            Background="MintCream"
+            Margin="10">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
     </Grid>
 </Window>
