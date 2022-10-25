@@ -30,6 +30,8 @@ namespace TravelPal
         private void btnSignIn_Click(object sender, RoutedEventArgs e)
         {
             // Signar in usern
+
+            MessageBox.Show("Please fill in the information");
         }
 
         private void btnRegister_Click(object sender, RoutedEventArgs e)

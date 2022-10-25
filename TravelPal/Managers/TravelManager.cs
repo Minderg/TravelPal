@@ -9,7 +9,7 @@ namespace TravelPal.Managers
 {
     public class TravelManager
     {
-        List<Travel> travels = new();
+        public List<Travel> travels = new();
 
         public void AddTravel(Travel travel)
         {
