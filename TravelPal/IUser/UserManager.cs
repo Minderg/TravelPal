@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TravelPal.Enums;
 
 namespace TravelPal.IUser
 {
@@ -11,17 +12,24 @@ namespace TravelPal.IUser
         public List<IUser> users = new();
         public IUser SingedInUser { get; set; }
 
-        // Fråga Albin om alla dessa, varför dem blir röda???????????????????????
-
-        public bool AddUser(IUser)
+        public bool AddUser(string username, string password, Countries country)
         {
-            // Lägger till en user
+            if(ValidateUserName(username))
+            {
+                User user = new(username, password, country);
+                users.Add(user);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
-        public void RemoveUser(IUser)
+        public void RemoveUser(string username, string password, Countries country)
         {
             // Tar bort en user (Admin bara)
         }
-        public bool UpdateUserName(IUser, string users)
+        public bool UpdateUserName(string username, string password, Countries country)
         {
             // Om usern vill byta namn
             return true;
@@ -30,6 +38,9 @@ namespace TravelPal.IUser
         private bool ValidateUserName(string username)
         {
             // Bekräfta userns name
+            // Kolla om usernamet är upptaget,
+            // Om INTE upptaget - returnera true
+            // Om upptaget - returnera false
             return true;
         }
 

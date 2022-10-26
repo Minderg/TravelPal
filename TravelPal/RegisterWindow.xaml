@@ -114,7 +114,8 @@
         <!--</Border>-->
         
         <!--Countries-->
-        <ComboBox 
+        <ComboBox
+            Name="cbRegister"
             Grid.Column="3"
             Grid.Row="4"
             Margin="20"

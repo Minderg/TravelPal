@@ -8,16 +8,19 @@ using TravelPal.Travels;
 
 namespace TravelPal.IUser
 {
-    public class User : IUser
+    public class User :IUser
     {
         public List<Travel> travels = new();
 
         public string Username { get; set; }
         public string Password { get; set; }
+        public Countries Location { get; set; }
 
-        public void IUser(string username, string password)
+        public User(string username, string password, Countries country)
         {
-            
+            Username = username;
+            Password = password;
+            Location = country;
         }
     }
 }

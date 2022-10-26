@@ -19,10 +19,9 @@ namespace TravelPal.Travels
             // Fråga Albin
         }
 
-        public virtual string GetInfo()
-        {
-            // Hämta information angående resa
-            
-        }
+        //public virtual string GetInfo()
+        //{
+        //    // Hämta information angående resa
+        //}
     }
 }

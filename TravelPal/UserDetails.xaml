@@ -82,7 +82,8 @@
             FontFamily="Arial"
             IsReadOnly="True"
             />
-        <ComboBox 
+        <ComboBox
+            Name="cbUserDetails"
             Grid.Column="2"
             Grid.Row="4"
             Margin="15"          
