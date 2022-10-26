@@ -12,6 +12,11 @@ namespace TravelPal.Classes
         public List<IUser> users = new();
         public IUser SingedInUser { get; set; }
 
+        public UserManager()
+        {
+            AddAdminUser();
+        }
+
         // Add user
         public bool AddUser(string username, string password, Countries country)
         {
@@ -60,6 +65,13 @@ namespace TravelPal.Classes
         public List<IUser> GetAllUsers()
         {
             return users;
+        }
+
+        public void AddAdminUser()
+        {
+            Admin admin = new("Gandalf", "password");
+
+            users.Add(admin);
         }
 
     }
