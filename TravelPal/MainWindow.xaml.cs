@@ -57,12 +57,6 @@ namespace TravelPal
                     travelsWindow.Show();
                     this.Close();
                 }
-                else if(user is Admin)
-                {
-                    TravelsWindow travelsWindow = new();
-                    travelsWindow.Show();
-                    this.Close();
-                }
             }
             // Kollar om usern har skrivit in fel
             if(!userFound)

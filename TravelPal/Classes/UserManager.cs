@@ -67,6 +67,7 @@ namespace TravelPal.Classes
             return users;
         }
 
+        // Lägger till en Admin
         public void AddAdminUser()
         {
             Admin admin = new("Gandalf", "password");
