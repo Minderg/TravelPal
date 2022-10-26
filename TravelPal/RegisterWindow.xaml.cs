@@ -11,8 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TravelPal.Classes;
 using TravelPal.Enums;
-using TravelPal.IUser;
 
 namespace TravelPal
 {
@@ -21,29 +21,31 @@ namespace TravelPal
     /// </summary>
     public partial class RegisterWindow : Window
     {
+         
+
         private UserManager userManager;
         public RegisterWindow(UserManager userManager)
         {
             InitializeComponent();
 
-            this.userManager = userManager;
-
-            // Fixa så att alla länder syns och inte string[] array
+            // Lägger till Länder i comboboxen
             string[] countries = Enum.GetNames(typeof(Countries));
 
-            foreach (string country in countries)
-            {
-                cbRegister.Items.Add(countries);
-            }
+            cbRegister.ItemsSource = countries;
+
+            this.userManager = userManager;
+
+
         }
 
         private void btnRegister_Click(object sender, RoutedEventArgs e)
         {
-            
+            // Registrerar en användare
             string username = txtUsername.Text;
             string password = pswPassword.Password;
             string country = cbRegister.Text;
 
+            // Omvandlar Country till en string
             Countries selectedCountry = (Countries)Enum.Parse(typeof(Countries), country);
 
             if(this.userManager.AddUser(username, password, selectedCountry))

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Xaml.Schema;
 using TravelPal.Enums;
 
-namespace TravelPal.IUser
+namespace TravelPal.Classes
 {
     public interface IUser
     {

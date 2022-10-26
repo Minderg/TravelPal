@@ -92,8 +92,7 @@
                 </Style>
             </TextBox.Resources>
         </TextBox>
-        <!--<Border
-            Name="pswPassword"
+        <Border
             BorderThickness="1.5"
             BorderBrush="MintCream"
             Grid.Column="3"
@@ -101,7 +100,7 @@
             Height="30"
             CornerRadius="10"
             Background="MintCream"
-            Opacity="0.7">-->
+            Opacity="0.7">
             <PasswordBox
                 Name="pswPassword"
                 Grid.Column="3"
@@ -111,7 +110,7 @@
                 Opacity="0.7"
                 BorderThickness="0">
             </PasswordBox>
-        <!--</Border>-->
+        </Border>
         
         <!--Countries-->
         <ComboBox
@@ -119,7 +118,7 @@
             Grid.Column="3"
             Grid.Row="4"
             Margin="20"
-            Width="74"
+            Width="80"
             />
         
         <!--Register-->

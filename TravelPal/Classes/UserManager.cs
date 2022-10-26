@@ -5,16 +5,17 @@ using System.Text;
 using System.Threading.Tasks;
 using TravelPal.Enums;
 
-namespace TravelPal.IUser
+namespace TravelPal.Classes
 {
     public class UserManager
     {
         public List<IUser> users = new();
         public IUser SingedInUser { get; set; }
 
+        // Add user
         public bool AddUser(string username, string password, Countries country)
         {
-            if(ValidateUserName(username))
+            if (ValidateUserName(username))
             {
                 User user = new(username, password, country);
                 users.Add(user);
@@ -41,13 +42,24 @@ namespace TravelPal.IUser
             // Kolla om usernamet är upptaget,
             // Om INTE upptaget - returnera true
             // Om upptaget - returnera false
+
+            //if(username == ValidateUserName(username){
+
+            //}
             return true;
         }
 
         public bool SignInUser(string username, string password)
         {
             // Signar in usern
+
+
             return true;
+        }
+
+        public List<IUser> GetAllUsers()
+        {
+            return users;
         }
 
     }

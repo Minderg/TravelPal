@@ -86,7 +86,6 @@
             </TextBox.Resources>
         </TextBox>
         <Border
-            Name="pswPassword"
             BorderThickness="1.5"
             BorderBrush="MintCream"
             Grid.Column="3"
@@ -96,6 +95,7 @@
             Background="MintCream"
             Opacity="0.7">
             <PasswordBox 
+                Name="pswPassword"
                 VerticalContentAlignment="Center"
                 FontFamily="Arial" 
                 Opacity="0.7"

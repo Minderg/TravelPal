@@ -12,8 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TravelPal.Classes;
 using TravelPal.Enums;
-using TravelPal.IUser;
 
 namespace TravelPal
 {
@@ -39,15 +39,35 @@ namespace TravelPal
 
         private void btnSignIn_Click(object sender, RoutedEventArgs e)
         {
-            // Signar in usern
+            // Signar in usern som har lagt in till Listan IUser
+            List<IUser> users = userManager.GetAllUsers(); 
 
-            MessageBox.Show("Please fill in the information");
+            string username = txtUsername.Text;
+            string password = pswPassword.Password;
+
+
+            bool userFound = false;
+
+            foreach (IUser user in users)
+            {
+                if(user.Username == username && user.Password == password)
+                {
+                    userFound = true;
+                    TravelsWindow travelsWindow = new();
+                    travelsWindow.Show();
+                    this.Close();
+                }
+            }
+            // Kollar om usern har skrivit in fel
+            if(!userFound)
+            {
+                MessageBox.Show("The username or password was incorrect!");
+            }
         }
 
         private void btnRegister_Click(object sender, RoutedEventArgs e)
         {
-            // Ska poppa upp en ny WPF, där user kan registrera sig
-
+            // RegisterWindow dyker upp så usern kan registrera sig
             RegisterWindow registerWindow = new(userManager);
 
             registerWindow.Show();

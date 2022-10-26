@@ -26,6 +26,15 @@ namespace TravelPal.Enums
       Nigeria,
       Pakistan,
       Thailand,
-      Vietnam
+      Vietnam,
+      France,
+      Spain,
+      Turkey,
+      Polen,
+      Sweden,
+      Norway,
+      Finland,
+      Italy,
+      Greece
     }
 }

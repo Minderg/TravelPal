@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using TravelPal.Enums;
 using TravelPal.Travels;
 
-namespace TravelPal.IUser
+namespace TravelPal.Classes
 {
-    public class User :IUser
+    public class User : IUser
     {
         public List<Travel> travels = new();
 
