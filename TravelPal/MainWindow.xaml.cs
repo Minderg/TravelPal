@@ -28,6 +28,7 @@ namespace TravelPal
             InitializeComponent();
 
             this.userManager = new();
+
         }
 
         public MainWindow(UserManager userManager)
@@ -44,7 +45,6 @@ namespace TravelPal
 
             string username = txtUsername.Text;
             string password = pswPassword.Password;
-
 
             bool userFound = false;
 
@@ -63,6 +63,9 @@ namespace TravelPal
             {
                 MessageBox.Show("The username or password was incorrect!");
             }
+
+           
+
         }
 
         private void btnRegister_Click(object sender, RoutedEventArgs e)

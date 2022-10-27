@@ -33,7 +33,7 @@ namespace TravelPal.Classes
         }
         public void RemoveUser(string username, string password, Countries country)
         {
-            // Tar bort en user (Admin bara)
+            // Tar bort resor som users har lagt till(Admin bara)
         }
         public bool UpdateUserName(string username, string password, Countries country)
         {

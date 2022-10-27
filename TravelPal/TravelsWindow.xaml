@@ -63,13 +63,14 @@
         </Button>
 
         <!--See User name-->
-        <Label
-            Name="lbSeeUser"
+        <TextBox
+            Name="txtSeeUser"
             Grid.Column="6"
             VerticalContentAlignment="Center"
             HorizontalContentAlignment="Center"
             FontFamily="Arial"
             FontSize="15"
+            Visibility="Hidden"
             />
 
 
