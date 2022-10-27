@@ -75,7 +75,8 @@
             />
         
         <!--User Input-->
-        <ComboBox 
+        <ComboBox
+            Name="cbAddCountry"
             Grid.Column="3"
             Grid.Row="1"
             Margin="20"
@@ -111,15 +112,17 @@
                 </Style>
             </TextBox.Resources>
         </TextBox>
-        <ComboBox 
+        <ComboBox
+            Name="cbChoose"
             Grid.Column="3"
             Grid.Row="4"
             Margin="20"
             Width="74"
             />
         
-        <!--CheckBox if choosen Vacation-->
-        <CheckBox 
+        <!--CheckBox if choosen Work-->
+        <CheckBox
+            Name="chkWork"
             Grid.Column="4"
             Grid.Row="4"
             Content="All Inclusive"
@@ -128,8 +131,9 @@
             Visibility="Hidden"
             />
 
-        <!--CheckBox if choosen Trip-->
-        <ComboBox 
+        <!--CheckBox if choosen Leisure-->
+        <CheckBox
+            Name="chkLeisure"
             Grid.Column="4"
             Grid.Row="4"
             Margin="20"
