@@ -22,11 +22,20 @@ namespace TravelPal
         public TravelsWindow()
         {
             InitializeComponent();
+
         }
 
         private void btnInfo_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void btnSignOut_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new();
+
+            Close();
+            mainWindow.Show();
         }
     }
 }

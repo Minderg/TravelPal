@@ -124,12 +124,14 @@
         </Button>
 
         <!--Sign Out-->
-        <Button 
+        <Button
+            Name="btnSignOut"
             Grid.Column="6"
             Grid.Row="6"
             Content="Sign Out"
             Margin="10"
-            Background="MintCream">
+            Background="MintCream"
+            Click="btnSignOut_Click">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10"/>
