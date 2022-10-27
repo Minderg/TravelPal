@@ -23,6 +23,7 @@ namespace TravelPal
     public partial class MainWindow : Window
     {
         private UserManager userManager;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -64,8 +65,6 @@ namespace TravelPal
                 MessageBox.Show("The username or password was incorrect!");
             }
 
-           
-
         }
 
         private void btnRegister_Click(object sender, RoutedEventArgs e)
@@ -76,5 +75,6 @@ namespace TravelPal
             registerWindow.Show();
             Close();
         }
+
     }
 }

@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using TravelPal.Enums;
 
 namespace TravelPal.Classes
@@ -47,17 +49,13 @@ namespace TravelPal.Classes
             // Kolla om usernamet är upptaget,
             // Om INTE upptaget - returnera true
             // Om upptaget - returnera false
-
-            //if(username == ValidateUserName(username){
-
-            //}
             return true;
+
         }
 
         public bool SignInUser(string username, string password)
         {
             // Signar in usern
-
 
             return true;
         }
