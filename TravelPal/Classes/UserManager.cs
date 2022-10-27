@@ -19,7 +19,7 @@ namespace TravelPal.Classes
             AddAdminUser();
         }
 
-        // Add user
+        // Add an user to the list
         public bool AddUser(string username, string password, Countries country)
         {
             if (ValidateUserName(username))
@@ -45,6 +45,7 @@ namespace TravelPal.Classes
 
         private bool ValidateUserName(string username)
         {
+
             // Bekräfta userns name
             // Kolla om usernamet är upptaget,
             // Om INTE upptaget - returnera true
