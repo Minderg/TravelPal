@@ -76,5 +76,14 @@ namespace TravelPal
             Close();
         }
 
+        //public void UpdateUi()
+        //{
+        //    TravelsWindow travelsWindow = new();
+        //    travelsWindow.Show();
+
+        //    txtUsername = 
+
+        //}
+
     }
 }

@@ -20,6 +20,7 @@ namespace TravelPal
     /// </summary>
     public partial class TravelsWindow : Window
     {
+        public string username;
         public TravelsWindow()
         {
             InitializeComponent();
@@ -43,11 +44,6 @@ namespace TravelPal
 
             Close();
             mainWindow.Show();
-        }
-        
-        public void UpdateUi()
-        {
-
         }
 
     }
