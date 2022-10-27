@@ -47,7 +47,7 @@
 
         <!--User Details-->
         <Button 
-            Grid.Column="6"
+            Grid.Column="5"
             Grid.Row="0"
             Content="User Details"
             VerticalContentAlignment="Center"
@@ -61,6 +61,16 @@
                 </Style>
             </Button.Resources>
         </Button>
+
+        <!--See User name-->
+        <Label
+            Name="lbSeeUser"
+            Grid.Column="6"
+            VerticalContentAlignment="Center"
+            HorizontalContentAlignment="Center"
+            FontFamily="Arial"
+            FontSize="15"
+            />
 
 
         <!--List of Destinations-->
@@ -120,6 +130,22 @@
             Content="Sign Out"
             Margin="10"
             Background="MintCream">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        
+        <!--Info-->
+        <Button
+            x:Name="btnInfo"
+            Grid.Column="5"
+            Grid.Row="6"
+            Content="Info"
+            Margin="10"
+            Background="MintCream"
+            Click="btnInfo_Click">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10"/>

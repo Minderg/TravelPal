@@ -23,5 +23,10 @@ namespace TravelPal
         {
             InitializeComponent();
         }
+
+        private void btnInfo_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
