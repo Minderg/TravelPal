@@ -141,13 +141,31 @@
             Visibility="Hidden"
             />
         
-        <!--Save-->
+        <!--BackButton-->
         <Button
+            Name="btBack"
+            Grid.Column="2"
+            Grid.Row="5"
+            Content="Back"
+            Background="MintCream"
+            Margin="10"
+            Click="btBack_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <!--SaveButton-->
+        <Button
+            Name="btnSave"
             Grid.Column="3"
             Grid.Row="5"
             Content="Save"
             Background="MintCream"
-            Margin="10">
+            Margin="10"
+            Click="btnSave_Click">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10"/>

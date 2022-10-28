@@ -39,9 +39,9 @@ namespace TravelPal
             this.userManager = userManager;
         }
 
+        // Signar in usern som har lagt in till Listan IUser
         private void btnSignIn_Click(object sender, RoutedEventArgs e)
         {
-            // Signar in usern som har lagt in till Listan IUser
             List<IUser> users = userManager.GetAllUsers(); 
 
             string username = txtUsername.Text;
@@ -54,7 +54,7 @@ namespace TravelPal
                 if(user.Username == username && user.Password == password)
                 {
                     userFound = true;
-                    TravelsWindow travelsWindow = new();
+                    TravelsWindow travelsWindow = new(userManager);
                     travelsWindow.Show();
                     this.Close();
                 }
@@ -67,9 +67,9 @@ namespace TravelPal
 
         }
 
+        // RegisterWindow dyker upp så usern kan registrera sig
         private void btnRegister_Click(object sender, RoutedEventArgs e)
         {
-            // RegisterWindow dyker upp så usern kan registrera sig
             RegisterWindow registerWindow = new(userManager);
 
             registerWindow.Show();

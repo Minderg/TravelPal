@@ -43,15 +43,18 @@ namespace TravelPal.Classes
             return true;
         }
 
+        // Kollar om usern redan finns med
         private bool ValidateUserName(string username)
         {
-
-            // Bekräfta userns name
-            // Kolla om usernamet är upptaget,
-            // Om INTE upptaget - returnera true
-            // Om upptaget - returnera false
+            foreach(IUser user in users)
+            {
+                if(user.Username == username)
+                {
+                    return false;
+                }
+            }
             return true;
-
+            
         }
 
         public bool SignInUser(string username, string password)

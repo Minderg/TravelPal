@@ -21,9 +21,16 @@ namespace TravelPal
     public partial class TravelsWindow : Window
     {
         public string username;
-        public TravelsWindow()
+        private UserManager userManager;
+        private User user;
+        public TravelsWindow(UserManager userManager)
         {
             InitializeComponent();
+
+            // Visa vilken usern som är in inloggad
+            // Fråga Albin
+            //this.user = this.userManager.SingedInUser as User;
+            //lbSeeUser.Content = $"{username}";
 
         }
 
@@ -46,5 +53,13 @@ namespace TravelPal
             mainWindow.Show();
         }
 
+        // Lägger till och sparar en ny resa
+        private void btnAddDestination_Click(object sender, RoutedEventArgs e)
+        {
+            AddTravel addTravel = new();
+
+            addTravel.Show();
+            Close();
+        }
     }
 }

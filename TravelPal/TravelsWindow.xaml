@@ -82,12 +82,14 @@
             />
 
         <!--Add Destination-->
-        <Button 
+        <Button
+            Name="btnAddDestination"
             Grid.Column="1"
             Grid.Row="2"
             Content="Add Destination"
             Margin="2"
-            Background="MintCream">
+            Background="MintCream"
+            Click="btnAddDestination_Click">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10"/>

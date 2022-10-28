@@ -45,5 +45,17 @@ namespace TravelPal
 
         }
 
+        private void btBack_Click(object sender, RoutedEventArgs e)
+        {
+            TravelsWindow travelsWindow = new(userManager);
+
+            travelsWindow.Show();
+            Close();
+        }
+
+        private void btnSave_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
