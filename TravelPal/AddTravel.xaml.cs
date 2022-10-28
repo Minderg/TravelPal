@@ -66,7 +66,7 @@ namespace TravelPal
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-           
+           // Savea det usern har skrivit in och skicka det vidare till Travelswindows listview
 
         }
 
