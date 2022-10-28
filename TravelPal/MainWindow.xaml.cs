@@ -25,6 +25,7 @@ namespace TravelPal
         private UserManager userManager;
         // Det här är en kommentar från mac datorn
         // Kommentar från PC dator
+        //Detta är en kommentar från Stationära datorn
 
         public MainWindow()
         {
