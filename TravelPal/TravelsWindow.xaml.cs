@@ -68,6 +68,7 @@ namespace TravelPal
             AddTravel addTravel = new(travelManager, userManager);
 
             addTravel.Show();
+            Close();
         }
     }
 }

@@ -26,6 +26,7 @@ namespace TravelPal
     {
         private UserManager userManager;
         private TravelManager travelManager;
+        private string SelectedTravelType;
         public AddTravel(TravelManager travelManager, UserManager userManager)
         {
             InitializeComponent();
@@ -37,13 +38,21 @@ namespace TravelPal
 
             this.userManager = userManager;
 
-            // Lägger till Work/Leisure i combobox
+            // Lägger till Vaction/Trip i combobox
 
-            string[] tripTypes = Enum.GetNames(typeof(TripTypes));
+            string[] travelTypes = Enum.GetNames(typeof(TravelTypes));
 
-            cbChoose.ItemsSource = tripTypes;
+            cbChoose.ItemsSource = travelTypes;
 
             this.userManager = userManager;
+
+            // Lägger till Work/Leisure i combobox
+            string[] tripTypes = Enum.GetNames(typeof(TripTypes));
+
+            cbTripType.ItemsSource = tripTypes;
+
+            this.userManager = userManager;
+
 
         }
 
@@ -57,7 +66,25 @@ namespace TravelPal
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
+           
 
+        }
+
+        // Så man kan välja All Inclusive eller Work/Leisure
+        private void cbChoose_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            this.SelectedTravelType = cbChoose.SelectedItem as string;
+
+            if(SelectedTravelType == "Trip")
+            {
+                cbTripType.Visibility = Visibility.Visible;
+                xbAllInclusive.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                cbTripType.Visibility = Visibility.Hidden;
+                xbAllInclusive.Visibility = Visibility.Visible;
+            }
         }
     }
 }

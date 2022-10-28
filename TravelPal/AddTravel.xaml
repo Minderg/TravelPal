@@ -112,35 +112,57 @@
                 </Style>
             </TextBox.Resources>
         </TextBox>
+       
         <ComboBox
             Name="cbChoose"
             Grid.Column="3"
             Grid.Row="4"
             Margin="20"
-            Width="74"
+            Width="74" 
+            SelectionChanged="cbChoose_SelectionChanged"     
             />
         
-        <!--CheckBox if choosen Work-->
-        <CheckBox
-            Name="chkWork"
+        <!--CheckBox if choosen Vacation-->
+        <!--<CheckBox
+            Name="chVacation"
             Grid.Column="4"
             Grid.Row="4"
             Content="All Inclusive"
             VerticalContentAlignment="Center"
             FontFamily="Arial"
             Visibility="Hidden"
+            />-->
+
+        <CheckBox
+            Name="xbAllInclusive"
+            Grid.Column="4"
+            Grid.Row="4"
+            Content="All Incluvise"
+            VerticalContentAlignment="Center"
+            HorizontalContentAlignment="Center"
+            Visibility="Hidden"
             />
 
-        <!--CheckBox if choosen Leisure-->
-        <CheckBox
+        <!--CheckBox if choosen Trip-->
+        <!--<CheckBox
             Name="chkLeisure"
             Grid.Column="4"
             Grid.Row="4"
             Margin="20"
             Width="74"
             Visibility="Hidden"
+            />-->
+        <!--Ta bort sen-->
+
+        <!--CheckBox for Work/Leisure-->
+        <ComboBox
+            Name="cbTripType"
+            Grid.Column="4"
+            Grid.Row="4"
+            Margin="20"
+            Visibility="Hidden"
             />
-        
+
         <!--BackButton-->
         <Button
             Name="btBack"
