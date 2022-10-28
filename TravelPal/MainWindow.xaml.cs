@@ -23,6 +23,7 @@ namespace TravelPal
     public partial class MainWindow : Window
     {
         private UserManager userManager;
+        // Det här är en kommentar från mac datorn
 
         public MainWindow()
         {
