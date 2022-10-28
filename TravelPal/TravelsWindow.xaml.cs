@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using TravelPal.Classes;
+using TravelPal.Managers;
 
 namespace TravelPal
 {
@@ -20,18 +21,26 @@ namespace TravelPal
     /// </summary>
     public partial class TravelsWindow : Window
     {
-        public string username;
         private UserManager userManager;
         private User user;
+        private TravelManager travelManager;
         public TravelsWindow(UserManager userManager)
         {
             InitializeComponent();
 
             // Visa vilken usern som är in inloggad
-            // Fråga Albin
-            //this.user = this.userManager.SingedInUser as User;
-            //lbSeeUser.Content = $"{username}";
 
+            this.userManager = userManager;
+            // Fråga Albin
+            if(this.userManager.SignedInUser is User)
+            {
+                this.user = this.userManager.SignedInUser as User;
+                lbSeeUser.Content = $"{this.user.Username}";
+            }
+            //else if (this.userManager.SignedInUser is Admin)
+            //{
+            //    // Så man ser admin 
+            //}
         }
 
         // Poppar upp en ruta så man kan läsa hur man använder appen
@@ -56,10 +65,9 @@ namespace TravelPal
         // Lägger till och sparar en ny resa
         private void btnAddDestination_Click(object sender, RoutedEventArgs e)
         {
-            AddTravel addTravel = new();
+            AddTravel addTravel = new(travelManager, userManager);
 
             addTravel.Show();
-            Close();
         }
     }
 }

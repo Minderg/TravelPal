@@ -56,6 +56,7 @@ namespace TravelPal
                 if(user.Username == username && user.Password == password)
                 {
                     userFound = true;
+                    userManager.SignedInUser = user;
                     TravelsWindow travelsWindow = new(userManager);
                     travelsWindow.Show();
                     this.Close();
@@ -77,15 +78,5 @@ namespace TravelPal
             registerWindow.Show();
             Close();
         }
-
-        //public void UpdateUi()
-        //{
-        //    TravelsWindow travelsWindow = new();
-        //    travelsWindow.Show();
-
-        //    txtUsername = 
-
-        //}
-
     }
 }

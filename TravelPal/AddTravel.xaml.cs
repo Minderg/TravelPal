@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using TravelPal.Classes;
 using TravelPal.Enums;
+using TravelPal.Managers;
 using TravelPal.Travels;
 
 namespace TravelPal
@@ -24,7 +25,8 @@ namespace TravelPal
     public partial class AddTravel : Window
     {
         private UserManager userManager;
-        public AddTravel()
+        private TravelManager travelManager;
+        public AddTravel(TravelManager travelManager, UserManager userManager)
         {
             InitializeComponent();
 

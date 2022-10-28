@@ -12,7 +12,7 @@ namespace TravelPal.Classes
     public class UserManager
     {
         public List<IUser> users = new();
-        public IUser SingedInUser { get; set; }
+        public IUser SignedInUser { get; set; }
 
         public UserManager()
         {
