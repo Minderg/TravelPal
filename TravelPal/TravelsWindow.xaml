@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TravelPal"
         mc:Ignorable="d"
-        Title="TravelsWindow" Height="450" Width="800" Background="MintCream">
+        Title="TravelsWindow" Height="450" Width="800" Background="MintCream" ResizeMode="NoResize">
     <Grid>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -69,12 +69,12 @@
             VerticalContentAlignment="Center"
             HorizontalContentAlignment="Center"
             FontFamily="Arial"
-            FontSize="15"
             />
 
 
         <!--List of Destinations-->
-        <ListView 
+        <ListView
+            Name="lvTravelInformation"
             Grid.Column="2"
             Grid.Row="2"
             Grid.ColumnSpan="3"

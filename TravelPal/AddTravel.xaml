@@ -79,10 +79,11 @@
             Name="cbAddCountry"
             Grid.Column="3"
             Grid.Row="1"
-            Margin="20"
+            Margin="18"
             Width="74"
             />
         <TextBox
+            Name="txtDestination"
             BorderThickness="1.5"
             BorderBrush="MintCream"
             Grid.Column="3"
@@ -98,6 +99,7 @@
             </TextBox.Resources>
         </TextBox>
         <TextBox
+            Name="txtTravelers"
             BorderThickness="1.5"
             BorderBrush="MintCream"
             Grid.Column="3"

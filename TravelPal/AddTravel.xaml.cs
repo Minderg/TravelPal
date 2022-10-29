@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
@@ -27,6 +28,9 @@ namespace TravelPal
         private UserManager userManager;
         private TravelManager travelManager;
         private string SelectedTravelType;
+        private string addInformation;
+        
+        // Får ut allting i comboboxes/checkboxes
         public AddTravel(TravelManager travelManager, UserManager userManager)
         {
             InitializeComponent();
@@ -56,6 +60,7 @@ namespace TravelPal
 
         }
 
+        // Kommer till TravelsWindow fönstret
         private void btBack_Click(object sender, RoutedEventArgs e)
         {
             TravelsWindow travelsWindow = new(userManager);
@@ -66,8 +71,15 @@ namespace TravelPal
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-           // Savea det usern har skrivit in och skicka det vidare till Travelswindows listview
+            TravelsWindow travelsWindow = new(userManager);
+            // Savea det usern har skrivit in och skicka det vidare till Travelswindows listview
 
+            //string country = cbAddCountry.Text;
+            //string username = txtDestination.Text;
+            //int travelers = Convert.ToInt32(txtTravelers.Text);
+            //string choose = cbChoose.Text;
+
+            travelsWindow.Show();
         }
 
         // Så man kan välja All Inclusive eller Work/Leisure

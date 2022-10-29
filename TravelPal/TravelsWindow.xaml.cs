@@ -31,16 +31,17 @@ namespace TravelPal
             // Visa vilken usern som är in inloggad
 
             this.userManager = userManager;
-            // Fråga Albin
+
             if(this.userManager.SignedInUser is User)
             {
                 this.user = this.userManager.SignedInUser as User;
-                lbSeeUser.Content = $"{this.user.Username}";
+                lbSeeUser.Content = $"Welcome {this.user.Username}";
             }
-            //else if (this.userManager.SignedInUser is Admin)
-            //{
-            //    // Så man ser admin 
-            //}
+            else
+            {
+                lbSeeUser.Content = "Welcome Gandalf";
+            }
+    
         }
 
         // Poppar upp en ruta så man kan läsa hur man använder appen
