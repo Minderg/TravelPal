@@ -74,10 +74,10 @@ namespace TravelPal
             TravelsWindow travelsWindow = new(userManager);
             // Savea det usern har skrivit in och skicka det vidare till Travelswindows listview
 
-            //string country = cbAddCountry.Text;
-            //string username = txtDestination.Text;
-            //int travelers = Convert.ToInt32(txtTravelers.Text);
-            //string choose = cbChoose.Text;
+            string country = cbAddCountry.Text;
+            string username = txtDestination.Text;
+            int travelers = Convert.ToInt32(txtTravelers.Text);
+            string choose = cbChoose.Text;
 
             travelsWindow.Show();
         }

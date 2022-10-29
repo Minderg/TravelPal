@@ -9,7 +9,7 @@ namespace TravelPal.Travels
 {
     public class Trip : Travel
     {
-        //public Type TripType { get; set; }
+        public Type TripType { get; set; }
 
         public Trip()
         {
