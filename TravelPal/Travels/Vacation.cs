@@ -14,11 +14,11 @@ namespace TravelPal.Travels
         public Countries Country  { get; set; }
         public int Travellers { get; set; }
 
-        public Vacation(bool allInclusive, string destination, Countries countries, int travellers)
+        public Vacation(bool allInclusive, string destination, Countries country, int travellers)
         {
             AllInclusive = allInclusive;
             Destination = destination;
-            Country = countries;
+            Country = country;
             Travellers = travellers;
 
         }

@@ -28,14 +28,15 @@ namespace TravelPal
         private UserManager userManager;
         public TravelManager travelManager;
         private string SelectedTravelType;
+        private User user;
         
         // Får ut allting i comboboxes/checkboxes
-        public AddTravel(TravelManager tManager, UserManager userManager)
+        public AddTravel(TravelManager tManager, UserManager uManager)
         {
             InitializeComponent();
 
             this.travelManager = tManager;
-            this.userManager = userManager;
+            this.userManager = uManager;
 
             // Lägger till Länder i comboboxen
             string[] countries = Enum.GetNames(typeof(Countries));
@@ -79,22 +80,8 @@ namespace TravelPal
            
             string destination = txtDestination.Text; // Skriver in vart man åker
             int travellers = Convert.ToInt32(txtTravelers.Text); // Skriver in hur många som ska åka
-
-            try
-            {
-                bool vacationType = false;
-
-                if(trip == "Trip")
-                {
-                    vacationType = true;
-                }
-                
-                travelManager.CreateTrip(destination, selectedCountry, travellers, selectedTrip);
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+                                                                 
+            travelManager.CreateTrip(destination, selectedCountry, travellers, selectedTrip);
 
             TravelsWindow travelsWindow = new(userManager);
             travelsWindow.Show();

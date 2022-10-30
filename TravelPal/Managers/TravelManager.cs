@@ -18,9 +18,9 @@ namespace TravelPal.Managers
             return AddTravel(destination, countries, travellers, tripTypes);
         }
 
-        public void CreateTrip(string destination, Countries countries, int travellers, TripTypes tripTypes)
+        public void CreateTrip(string destination, Countries country, int travellers, TripTypes tripTypes)
         {
-            Trip trip = new(travellers, destination, countries, tripTypes);
+            Trip trip = new(travellers, destination, country, tripTypes);
 
             travels.Add(trip);
         }

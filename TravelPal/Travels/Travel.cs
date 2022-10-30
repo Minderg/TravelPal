@@ -14,11 +14,11 @@ namespace TravelPal.Travels
         public Countries Country { get; set; }
         public int Travellers { get; set; }
 
-        public Travel(string destination, Countries country, int travellers)
+        public Travel(/*string destination, Countries country, int travellers*/)
         {
-            Destination = destination;
-            Country = country;
-            Travellers = travellers;
+            //Destination = destination;
+            //Country = country;
+            //Travellers = travellers;
         }
 
         public virtual string GetInfo()
@@ -26,5 +26,5 @@ namespace TravelPal.Travels
             // Hämta information angående resa
             return $"Country {Country}";
         }
-    }
+    } 
 }
