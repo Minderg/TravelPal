@@ -14,9 +14,11 @@ namespace TravelPal.Travels
         public Countries Country { get; set; }
         public int Travellers { get; set; }
 
-        public Travel()
+        public Travel(string destination, Countries country, int travellers)
         {
-            
+            Destination = destination;
+            Country = country;
+            Travellers = travellers;
         }
 
         public virtual string GetInfo()
