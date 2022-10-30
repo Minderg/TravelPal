@@ -35,13 +35,12 @@ namespace TravelPal
             InitializeComponent();
 
             this.travelManager = tManager;
+            this.userManager = userManager;
 
             // Lägger till Länder i comboboxen
             string[] countries = Enum.GetNames(typeof(Countries));
 
             cbAddCountry.ItemsSource = countries;
-
-            this.userManager = userManager;
 
             // Lägger till Vaction/Trip i combobox
 
@@ -49,14 +48,11 @@ namespace TravelPal
 
             cbChoose.ItemsSource = travelTypes;
 
-            this.userManager = userManager;
-
             // Lägger till Work/Leisure i combobox
             string[] tripTypes = Enum.GetNames(typeof(TripTypes));
 
             cbTripType.ItemsSource = tripTypes;
 
-            this.userManager = userManager;
 
 
         }
@@ -74,17 +70,32 @@ namespace TravelPal
             // Savea det usern har skrivit in och skicka det vidare till Travelswindows listview
 
             string country = cbAddCountry.SelectedItem as string;
-            Countries selectedCountry = (Countries)Enum.Parse(typeof(Countries), country);
+            Countries selectedCountry = (Countries)Enum.Parse(typeof(Countries), country); // Omvandlar Country till en string
+
+
+            // Kolla varför den kraschar här!!!!
+            string trip = cbChoose.SelectedItem as string;
+            TripTypes selectedTrip = (TripTypes)Enum.Parse(typeof(TripTypes), trip); // Kollar vad man väljer för alternativ för resan
            
-            string trip = cbChoose.SelectedItem as string; // Väljer land
-            TripTypes selectedTrip = (TripTypes)Enum.Parse(typeof(TripTypes), trip); // Får in mina enums 
-           
-            string destination = txtDestination.Text; // Väljer destination
+            string destination = txtDestination.Text; // Skriver in vart man åker
             int travellers = Convert.ToInt32(txtTravelers.Text); // Skriver in hur många som ska åka
 
-            travelManager.CreateTrip(destination, selectedCountry, travellers, selectedTrip);
+            try
+            {
+                bool vacationType = false;
 
-            
+                if(trip == "Trip")
+                {
+                    vacationType = true;
+                }
+                
+                travelManager.CreateTrip(destination, selectedCountry, travellers, selectedTrip);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
             TravelsWindow travelsWindow = new(userManager);
             travelsWindow.Show();
         }

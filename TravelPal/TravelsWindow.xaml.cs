@@ -25,10 +25,7 @@ namespace TravelPal
     {
         private UserManager userManager;
         private User user;
-        private Admin admin;
         private TravelManager travelManager;
-        private IUser singedInUser;
-        private Travel travel;
 
 
         public TravelsWindow(UserManager userManager)

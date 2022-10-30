@@ -123,17 +123,7 @@
             Width="74" 
             SelectionChanged="cbChoose_SelectionChanged"     
             />
-        
-        <!--CheckBox if choosen Vacation-->
-        <!--<CheckBox
-            Name="chVacation"
-            Grid.Column="4"
-            Grid.Row="4"
-            Content="All Inclusive"
-            VerticalContentAlignment="Center"
-            FontFamily="Arial"
-            Visibility="Hidden"
-            />-->
+
 
         <CheckBox
             Name="xbAllInclusive"
@@ -145,16 +135,6 @@
             Visibility="Hidden"
             />
 
-        <!--CheckBox if choosen Trip-->
-        <!--<CheckBox
-            Name="chkLeisure"
-            Grid.Column="4"
-            Grid.Row="4"
-            Margin="20"
-            Width="74"
-            Visibility="Hidden"
-            />-->
-        <!--Ta bort sen-->
 
         <!--CheckBox for Work/Leisure-->
         <ComboBox

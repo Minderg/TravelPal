@@ -3,16 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TravelPal.Enums;
 
 namespace TravelPal.Travels
 {
     public class Vacation : Travel
     {
         public bool AllInclusive { get; set; }
+        public string Destination { get; set; }
+        public Countries Country  { get; set; }
+        public int Travellers { get; set; }
 
-        public Vacation(bool allInclusive)
+        public Vacation(bool allInclusive, string destination, Countries countries, int travellers)
         {
             AllInclusive = allInclusive;
+            Destination = destination;
+            Country = countries;
+            Travellers = travellers;
+
         }
 
         public override string GetInfo()
