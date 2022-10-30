@@ -14,6 +14,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TravelPal.Classes;
 using TravelPal.Enums;
+using TravelPal.Managers;
+using TravelPal.Travels;
 
 namespace TravelPal
 {
@@ -22,27 +24,28 @@ namespace TravelPal
     /// </summary>
     public partial class MainWindow : Window
     {
-        private UserManager userManager;
+        private UserManager uManager;
+        private TravelManager tManager = new();
 
         public MainWindow()
         {
             InitializeComponent();
 
-            this.userManager = new();
+            this.uManager = new();
 
         }
 
-        public MainWindow(UserManager userManager)
+        public MainWindow(UserManager uManager)
         {
             InitializeComponent();
 
-            this.userManager = userManager;
+            this.uManager = uManager;
         }
 
         // Signar in usern som har lagt in till Listan IUser
         private void btnSignIn_Click(object sender, RoutedEventArgs e)
         {
-            List<IUser> users = userManager.GetAllUsers(); 
+            List<IUser> users = uManager.GetAllUsers(); 
 
             string username = txtUsername.Text;
             string password = pswPassword.Password;
@@ -54,8 +57,8 @@ namespace TravelPal
                 if(user.Username == username && user.Password == password)
                 {
                     userFound = true;
-                    userManager.SignedInUser = user;
-                    TravelsWindow travelsWindow = new(userManager);
+                    uManager.SignedInUser = user;
+                    TravelsWindow travelsWindow = new(uManager, tManager);
                     travelsWindow.Show();
                     this.Close();
                 }
@@ -71,7 +74,7 @@ namespace TravelPal
         // RegisterWindow dyker upp så usern kan registrera sig
         private void btnRegister_Click(object sender, RoutedEventArgs e)
         {
-            RegisterWindow registerWindow = new(userManager);
+            RegisterWindow registerWindow = new(uManager);
 
             registerWindow.Show();
             Close();

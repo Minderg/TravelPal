@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,18 +26,20 @@ namespace TravelPal
     /// </summary>
     public partial class AddTravel : Window
     {
-        private UserManager userManager;
-        public TravelManager travelManager;
+        private UserManager uManager;
+        public TravelManager tManager;
         private string SelectedTravelType;
         private User user;
-        
+        public List<Travel> travels = new();
+
+
         // Får ut allting i comboboxes/checkboxes
         public AddTravel(TravelManager tManager, UserManager uManager)
         {
             InitializeComponent();
 
-            this.travelManager = tManager;
-            this.userManager = uManager;
+            this.tManager = tManager;
+            this.uManager = uManager;
 
             // Lägger till Länder i comboboxen
             string[] countries = Enum.GetNames(typeof(Countries));
@@ -53,38 +56,61 @@ namespace TravelPal
             string[] tripTypes = Enum.GetNames(typeof(TripTypes));
 
             cbTripType.ItemsSource = tripTypes;
-
-
-
         }
 
         // Kommer till TravelsWindow fönstret
         private void btBack_Click(object sender, RoutedEventArgs e)
         {
-            TravelsWindow travelsWindow = new(userManager);
+            TravelsWindow travelsWindow = new(uManager, tManager);
 
             travelsWindow.Show();
             Close();
         }
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            // Savea det usern har skrivit in och skicka det vidare till Travelswindows listview
+            bool isAllInclusive = false;
 
+            // Savea det usern har skrivit in och skicka det vidare till Travelswindows listview
             string country = cbAddCountry.SelectedItem as string;
             Countries selectedCountry = (Countries)Enum.Parse(typeof(Countries), country); // Omvandlar Country till en string
 
-
-            // Kolla varför den kraschar här!!!!
-            string trip = cbChoose.SelectedItem as string;
-            TripTypes selectedTrip = (TripTypes)Enum.Parse(typeof(TripTypes), trip); // Kollar vad man väljer för alternativ för resan
-           
             string destination = txtDestination.Text; // Skriver in vart man åker
             int travellers = Convert.ToInt32(txtTravelers.Text); // Skriver in hur många som ska åka
-                                                                 
-            travelManager.CreateTrip(destination, selectedCountry, travellers, selectedTrip);
 
-            TravelsWindow travelsWindow = new(userManager);
+            // Fixa så try/catch inte kraschar om man inte fyller i något
+            // Skriv något meddelande att dem måste fylla i allt
+            try
+            {
+                
+            // Checkar om vad man har checkat in checkboxen
+            if (cbChoose.SelectedIndex == 0)
+            {
+                if ((bool)xbAllInclusive.IsChecked)
+                {
+                    isAllInclusive = true;
+                }
+
+                tManager.CreateVacation(destination, selectedCountry, travellers, isAllInclusive);
+
+            }
+            // Checkar om vad man har checkat in checkboxen
+            else if (cbChoose.SelectedIndex == 1)
+            {
+                string trip = cbTripType.SelectedItem as string;
+                TripTypes selectedTrip = (TripTypes)Enum.Parse(typeof(TripTypes), trip);
+                tManager.CreateTrip(destination, selectedCountry, travellers, selectedTrip);
+            }
+
+            TravelsWindow travelsWindow = new(uManager, tManager);
             travelsWindow.Show();
+            Close();
+            }
+            // Fixa så programet inte kraschar om man inte fyller i något
+            // Skriv något meddelande att dem måste fylla i allt
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         // Så man kan välja All Inclusive eller Work/Leisure

@@ -9,6 +9,8 @@ namespace TravelPal.Travels
 {
     public class Vacation : Travel
     {
+        public List<Travel> travels = new();
+
         public bool AllInclusive { get; set; }
         public string Destination { get; set; }
         public Countries Country  { get; set; }
@@ -26,7 +28,7 @@ namespace TravelPal.Travels
         public override string GetInfo()
         {
             // Ska ta reda på vad usern har valt för något
-            return $"Country {Country}";
+            return $"Country | {Country}";
         }
     }
 }

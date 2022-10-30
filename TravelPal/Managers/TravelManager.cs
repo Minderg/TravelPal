@@ -18,11 +18,22 @@ namespace TravelPal.Managers
             return AddTravel(destination, countries, travellers, tripTypes);
         }
 
-        public void CreateTrip(string destination, Countries country, int travellers, TripTypes tripTypes)
+        // Checkar om man väljer Trip (Work/Leisure)
+        public Travel CreateTrip(string destination, Countries country, int travellers, TripTypes tripTypes)
         {
             Trip trip = new(travellers, destination, country, tripTypes);
 
             travels.Add(trip);
+            return trip;
+        }
+
+        // Checkar om man Vacation (All Incluvise)
+        public Travel CreateVacation(string destination, Countries country, int travellers, bool allInclusive)
+        {
+            Vacation vacation = new(allInclusive, destination, country, travellers);
+
+            travels.Add(vacation);
+            return vacation;
         }
 
         public void RemoveTravel(Travel travel)

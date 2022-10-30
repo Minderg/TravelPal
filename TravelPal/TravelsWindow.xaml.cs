@@ -23,31 +23,36 @@ namespace TravelPal
     /// </summary>
     public partial class TravelsWindow : Window
     {
-        private UserManager userManager;
+        private UserManager uManager;
         private User user;
-        private TravelManager travelManager;
+        private TravelManager tManager;
 
-
-        public TravelsWindow(UserManager userManager)
+        public TravelsWindow(UserManager userManager, TravelManager travelManager)
         {
             InitializeComponent();
 
             // Visa vilken usern som är in inloggad
 
-            this.userManager = userManager;
+            this.uManager = userManager;
+            this.tManager = travelManager;
 
-            if(this.userManager.SignedInUser is User)
+            if(this.uManager.SignedInUser is User)
             {
-                this.user = this.userManager.SignedInUser as User;
+                this.user = this.uManager.SignedInUser as User;
                 lbSeeUser.Content = $"Welcome {this.user.Username}";
             }
             else
             {
-                lbSeeUser.Content = "Welcome Gandalf";
+                lbSeeUser.Content = $"Welcome Admin";
             }
-
-            UpdateIU();
-
+            
+            foreach(var travel in tManager.travels)
+            {
+                lvTravelInformation.Items.Add(travel.GetInfo());
+                ListViewItem item = new();
+                item.Content = travel.GetInfo();
+                item.Tag = travel;
+            }
         }
 
         // Poppar upp en ruta så man kan läsa hur man använder appen
@@ -72,29 +77,9 @@ namespace TravelPal
         // Lägger till och sparar en ny resa
         private void btnAddDestination_Click(object sender, RoutedEventArgs e)
         {
-            AddTravel addTravel = new(travelManager, userManager);
+            AddTravel addTravel = new(tManager, uManager);
             addTravel.Show();
-            Close();
-           
-        }
-
-        public void UpdateIU()
-        {
-            // Ska uppdatera UI så man ser vad mar har lagt till
-            
-            if(this.userManager.SignedInUser is User)
-            {
-                User signedInUser = this.userManager.SignedInUser as User;
-
-                foreach (var travel in this.user.travels)
-                {
-                    lvTravelInformation.Items.Add(travel.GetInfo());
-                    ListViewItem item = new();
-                    item.Content = travel.GetInfo();
-                    item.Tag = travel;
-
-                }
-            }
+            Close();    
         }
     }
 }

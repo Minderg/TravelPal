@@ -10,6 +10,8 @@ namespace TravelPal.Travels
 {
     public class Travel
     {
+        public List<Travel> travels = new();
+
         public string Destination { get; set; }
         public Countries Country { get; set; }
         public int Travellers { get; set; }
@@ -24,7 +26,7 @@ namespace TravelPal.Travels
         public virtual string GetInfo()
         {
             // Hämta information angående resa
-            return $"Country {Country}";
+            return $"Country | {Country}";
         }
     } 
 }

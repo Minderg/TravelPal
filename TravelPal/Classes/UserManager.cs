@@ -72,7 +72,7 @@ namespace TravelPal.Classes
         // Lägger till en Admin
         public void AddAdminUser()
         {
-            Admin admin = new("Gandalf", "password");
+            Admin admin = new("admin", "password");
 
             users.Add(admin);
         }

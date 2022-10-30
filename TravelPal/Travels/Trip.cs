@@ -10,6 +10,8 @@ namespace TravelPal.Travels
 {
     public class Trip : Travel
     {
+        public List<Travel> travels = new();
+
         public TripTypes TripType { get; set; }
         public int Travellers { get; set; }
         public string Destination { get; set; }
@@ -26,7 +28,7 @@ namespace TravelPal.Travels
         public override string GetInfo() // ska vara en override
         {
             // Ta reda på vad usern har valt för alternativ för resan
-            return $"Country {base.Country}";
+            return $"Country | {base.Country}";
         }
     }
 }
