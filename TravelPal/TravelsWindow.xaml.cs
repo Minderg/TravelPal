@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -13,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using TravelPal.Classes;
 using TravelPal.Managers;
+using TravelPal.Travels;
 
 namespace TravelPal
 {
@@ -23,7 +25,12 @@ namespace TravelPal
     {
         private UserManager userManager;
         private User user;
+        private Admin admin;
         private TravelManager travelManager;
+        private IUser singedInUser;
+        private Travel travel;
+
+
         public TravelsWindow(UserManager userManager)
         {
             InitializeComponent();
@@ -41,7 +48,9 @@ namespace TravelPal
             {
                 lbSeeUser.Content = "Welcome Gandalf";
             }
-    
+
+            UpdateIU();
+
         }
 
         // Poppar upp en ruta så man kan läsa hur man använder appen
@@ -67,9 +76,28 @@ namespace TravelPal
         private void btnAddDestination_Click(object sender, RoutedEventArgs e)
         {
             AddTravel addTravel = new(travelManager, userManager);
-
             addTravel.Show();
             Close();
+           
+        }
+
+        public void UpdateIU()
+        {
+            // Ska uppdatera UI så man ser vad mar har lagt till
+            
+            if(this.userManager.SignedInUser is User)
+            {
+                User signedInUser = this.userManager.SignedInUser as User;
+
+                foreach (var travel in this.user.travels)
+                {
+                    lvTravelInformation.Items.Add(travel.GetInfo());
+                    ListViewItem item = new();
+                    item.Content = travel.GetInfo();
+                    item.Tag = travel;
+
+                }
+            }
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using TravelPal.Enums;
 
 namespace TravelPal.Travels
@@ -15,13 +16,13 @@ namespace TravelPal.Travels
 
         public Travel()
         {
-            // Props
-            // Fråga Albin
+            
         }
 
-        //public virtual string GetInfo()
-        //{
-        //    // Hämta information angående resa
-        //}
+        public virtual string GetInfo()
+        {
+            // Hämta information angående resa
+            return $"Country {Country}";
+        }
     }
 }

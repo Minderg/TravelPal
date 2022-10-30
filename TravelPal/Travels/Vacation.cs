@@ -15,10 +15,10 @@ namespace TravelPal.Travels
             AllInclusive = allInclusive;
         }
 
-        //public string GetInfo()
-        //{
-        //    // Ska ta reda på vad usern har valt för något
-        //    return AllInclusive;
-        //}
+        public override string GetInfo()
+        {
+            // Ska ta reda på vad usern har valt för något
+            return $"Country {Country}";
+        }
     }
 }

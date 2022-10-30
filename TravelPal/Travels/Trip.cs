@@ -4,21 +4,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Xps;
+using TravelPal.Enums;
 
 namespace TravelPal.Travels
 {
     public class Trip : Travel
     {
-        public Type TripType { get; set; }
+        public TripTypes TripType { get; set; }
+        public int Travellers { get; set; }
+        public string Destination { get; set; }
+        public Countries Country { get; set; }
 
-        public Trip()
+        public Trip(int travellers, string destination, Countries country, TripTypes tripTypes)
         {
-
+            Travellers = travellers;
+            Destination = destination;
+            Country = country;
+            TripType = tripTypes;
         }
 
-        //public string GetInfo()
-        //{
-        //    // Ta reda på vad usern har valt för alternativ för resan
-        //}
+        public override string GetInfo() // ska vara en override
+        {
+            // Ta reda på vad usern har valt för alternativ för resan
+            return $"Country {base.Country}";
+        }
     }
 }

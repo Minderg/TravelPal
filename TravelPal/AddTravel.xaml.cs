@@ -26,14 +26,15 @@ namespace TravelPal
     public partial class AddTravel : Window
     {
         private UserManager userManager;
-        private TravelManager travelManager;
+        public TravelManager travelManager;
         private string SelectedTravelType;
-        private string addInformation;
         
         // Får ut allting i comboboxes/checkboxes
-        public AddTravel(TravelManager travelManager, UserManager userManager)
+        public AddTravel(TravelManager tManager, UserManager userManager)
         {
             InitializeComponent();
+
+            this.travelManager = tManager;
 
             // Lägger till Länder i comboboxen
             string[] countries = Enum.GetNames(typeof(Countries));
@@ -68,17 +69,23 @@ namespace TravelPal
             travelsWindow.Show();
             Close();
         }
-
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            TravelsWindow travelsWindow = new(userManager);
             // Savea det usern har skrivit in och skicka det vidare till Travelswindows listview
 
-            string country = cbAddCountry.Text;
-            string username = txtDestination.Text;
-            int travelers = Convert.ToInt32(txtTravelers.Text);
-            string choose = cbChoose.Text;
+            string country = cbAddCountry.SelectedItem as string;
+            Countries selectedCountry = (Countries)Enum.Parse(typeof(Countries), country);
+           
+            string trip = cbChoose.SelectedItem as string; // Väljer land
+            TripTypes selectedTrip = (TripTypes)Enum.Parse(typeof(TripTypes), trip); // Får in mina enums 
+           
+            string destination = txtDestination.Text; // Väljer destination
+            int travellers = Convert.ToInt32(txtTravelers.Text); // Skriver in hur många som ska åka
 
+            travelManager.CreateTrip(destination, selectedCountry, travellers, selectedTrip);
+
+            
+            TravelsWindow travelsWindow = new(userManager);
             travelsWindow.Show();
         }
 
