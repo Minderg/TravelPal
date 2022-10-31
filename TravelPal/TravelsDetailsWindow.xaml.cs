@@ -24,6 +24,7 @@ namespace TravelPal
         private readonly UserManager uManager;
         private readonly TravelManager tManager;
 
+        // Får ut all information om en resa när man klickar på den i Travelswindow
         public TravelsDetailsWindow(UserManager uManager, TravelManager tManager, Travel travel)
         {
             InitializeComponent();
@@ -33,7 +34,15 @@ namespace TravelPal
             txtCountry.Text = travel.Country.ToString();
             txtDestination.Text = travel.Destination;
             txtTravelers.Text = travel.Travellers.ToString();
-            txtTravelType.Text = travel.GetTravelType(); // Gör en metod för travelType för att få ut skiten
+            txtTravelType.Text = travel.GetTravelType();
+        }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            TravelsWindow travelsWindow = new(uManager, tManager);
+
+            travelsWindow.Show();
+            Close();
         }
     }
 }

@@ -107,5 +107,10 @@ namespace TravelPal
 
             }
         }
+
+        private void btnRemove_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

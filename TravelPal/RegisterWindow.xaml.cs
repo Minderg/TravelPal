@@ -50,7 +50,12 @@ namespace TravelPal
             // Omvandlar Country till en string
             Countries selectedCountry = (Countries)Enum.Parse(typeof(Countries), country);
 
-            if(this.uManager.AddUser(username, password, selectedCountry))
+            // Kollar om usern redan finns registrerad
+            if (username.Count() == 0 || password.Count() == 0 || country.Count() == 0)
+            {
+                MessageBox.Show("Username is invalid or already used!");
+            }
+            else if (this.uManager.AddUser(username, password, selectedCountry))
             {
                 MainWindow mainWindow = new(uManager, tManager);
                 mainWindow.Show();
@@ -60,7 +65,6 @@ namespace TravelPal
             {
                 MessageBox.Show("Username is invalid or already used!");
             }
-
         }
     }
 }

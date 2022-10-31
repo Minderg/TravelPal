@@ -98,12 +98,14 @@
         </Button>
 
         <!--Reomve Destination-->
-        <Button 
+        <Button
+            Name="btnRemove"
             Grid.Column="1"
             Grid.Row="3"
             Content="Remove Destination"
             Margin="2"
-            Background="MintCream">
+            Background="MintCream"
+            Click="btnRemove_Click">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10"/>
