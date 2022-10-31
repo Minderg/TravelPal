@@ -69,7 +69,8 @@
             FontSize="18"
             FontFamily="Arial"
             />
-        <TextBox 
+        <TextBox
+            Name="txtCountry"
             Grid.Column="2"
             Grid.Row="2"
             Grid.ColumnSpan="2"
@@ -80,7 +81,8 @@
             FontFamily="Arial"
             IsReadOnly="True"
             />
-        <TextBox 
+        <TextBox
+            Name="txtDestination"
             Grid.Column="2"
             Grid.Row="3"
             Grid.ColumnSpan="2"
@@ -91,7 +93,8 @@
             FontFamily="Arial"
             IsReadOnly="True"
             />
-        <TextBox 
+        <TextBox
+            Name="txtTravelers"
             Grid.Column="2"
             Grid.Row="4"
             Grid.ColumnSpan="2"
@@ -102,7 +105,8 @@
             FontFamily="Arial"
             IsReadOnly="True"
             />
-        <TextBox 
+        <TextBox
+            Name="txtTravelType"
             Grid.Column="2"
             Grid.Row="5"
             Grid.ColumnSpan="2"

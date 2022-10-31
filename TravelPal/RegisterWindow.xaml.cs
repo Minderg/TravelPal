@@ -11,7 +11,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using TravelPal.Classes;
 using TravelPal.Enums;
 using TravelPal.Managers;
 

@@ -28,5 +28,10 @@ namespace TravelPal.Travels
             // Hämta information angående resa
             return $"Country | {Country}";
         }
+
+        public virtual string GetTravelType()
+        {
+            return "TravelType";
+        }
     } 
 }

@@ -25,5 +25,10 @@ namespace TravelPal.Travels
             // Ta reda på vad usern har valt för alternativ för resan
             return $"Country | {base.Country}";
         }
+
+        public override string GetTravelType()
+        {
+            return "Trip";
+        }
     }
 }

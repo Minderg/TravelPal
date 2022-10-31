@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TravelPal.Managers;
+using TravelPal.Travels;
 
 namespace TravelPal
 {
@@ -19,9 +21,19 @@ namespace TravelPal
     /// </summary>
     public partial class TravelsDetailsWindow : Window
     {
-        public TravelsDetailsWindow()
+        private readonly UserManager uManager;
+        private readonly TravelManager tManager;
+
+        public TravelsDetailsWindow(UserManager uManager, TravelManager tManager, Travel travel)
         {
             InitializeComponent();
+            this.uManager = uManager;
+            this.tManager = tManager;
+
+            txtCountry.Text = travel.Country.ToString();
+            txtDestination.Text = travel.Destination;
+            txtTravelers.Text = travel.Travellers.ToString();
+            txtTravelType.Text = travel.GetTravelType(); // Gör en metod för travelType för att få ut skiten
         }
     }
 }

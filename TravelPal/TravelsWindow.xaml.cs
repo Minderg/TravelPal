@@ -50,10 +50,12 @@ namespace TravelPal
             
             foreach(var travel in tManager.travels)
             {
-                lvTravelInformation.Items.Add(travel.GetInfo());
                 ListViewItem item = new();
                 item.Content = travel.GetInfo();
                 item.Tag = travel;
+
+                lvTravelInformation.Items.Add(item);
+
             }
         }
 
@@ -93,7 +95,7 @@ namespace TravelPal
             {
                 Travel selectedTravel = selectedItem.Tag as Travel;
 
-                TravelsDetailsWindow tDetailsWindow = new TravelsDetailsWindow();
+                TravelsDetailsWindow tDetailsWindow = new TravelsDetailsWindow(uManager, tManager, selectedTravel);
 
                 tDetailsWindow.Show();
                 Close();

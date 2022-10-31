@@ -24,5 +24,10 @@ namespace TravelPal.Travels
             // Ska ta reda på vad usern har valt för något
             return $"Country | {Country}";
         }
+
+        public override string GetTravelType()
+        {
+            return "Vacation";
+        }
     }
 }

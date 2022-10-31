@@ -5,9 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using TravelPal.Classes;
 using TravelPal.Enums;
 
-namespace TravelPal.Classes
+namespace TravelPal.Managers
 {
     public class UserManager
     {
@@ -46,15 +47,15 @@ namespace TravelPal.Classes
         // Kollar om usern redan finns med
         private bool ValidateUserName(string username)
         {
-            foreach(IUser user in users)
+            foreach (IUser user in users)
             {
-                if(user.Username == username)
+                if (user.Username == username)
                 {
                     return false;
                 }
             }
             return true;
-            
+
         }
 
         public bool SignInUser(string username, string password)
