@@ -35,11 +35,12 @@ namespace TravelPal
 
         }
 
-        public MainWindow(UserManager uManager)
+        public MainWindow(UserManager uManager, TravelManager tManager)
         {
             InitializeComponent();
 
             this.uManager = uManager;
+            this.tManager = tManager;
         }
 
         // Signar in usern som har lagt in till Listan IUser
@@ -74,7 +75,7 @@ namespace TravelPal
         // RegisterWindow dyker upp så usern kan registrera sig
         private void btnRegister_Click(object sender, RoutedEventArgs e)
         {
-            RegisterWindow registerWindow = new(uManager);
+            RegisterWindow registerWindow = new(uManager, tManager);
 
             registerWindow.Show();
             Close();

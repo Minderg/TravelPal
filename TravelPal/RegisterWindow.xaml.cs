@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using TravelPal.Classes;
 using TravelPal.Enums;
+using TravelPal.Managers;
 
 namespace TravelPal
 {
@@ -23,8 +24,9 @@ namespace TravelPal
     {
          
 
-        private UserManager userManager;
-        public RegisterWindow(UserManager userManager)
+        private UserManager uManager;
+        private TravelManager tManager;
+        public RegisterWindow(UserManager uManager, TravelManager tManager)
         {
             InitializeComponent();
 
@@ -33,7 +35,8 @@ namespace TravelPal
 
             cbRegister.ItemsSource = countries;
 
-            this.userManager = userManager;
+            this.uManager = uManager;
+            this.tManager = tManager;
 
 
         }
@@ -48,9 +51,9 @@ namespace TravelPal
             // Omvandlar Country till en string
             Countries selectedCountry = (Countries)Enum.Parse(typeof(Countries), country);
 
-            if(this.userManager.AddUser(username, password, selectedCountry))
+            if(this.uManager.AddUser(username, password, selectedCountry))
             {
-                MainWindow mainWindow = new(this.userManager);
+                MainWindow mainWindow = new(uManager, tManager);
                 mainWindow.Show();
                 Close();
             }

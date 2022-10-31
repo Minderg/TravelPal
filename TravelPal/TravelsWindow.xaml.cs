@@ -27,14 +27,14 @@ namespace TravelPal
         private User user;
         private TravelManager tManager;
 
-        public TravelsWindow(UserManager userManager, TravelManager travelManager)
+        public TravelsWindow(UserManager uManager, TravelManager tManager)
         {
             InitializeComponent();
 
             // Visa vilken usern som är in inloggad
 
-            this.uManager = userManager;
-            this.tManager = travelManager;
+            this.uManager = uManager;
+            this.tManager = tManager;
 
             if(this.uManager.SignedInUser is User)
             {
@@ -66,12 +66,13 @@ namespace TravelPal
         }
 
         // Signar ut usern och återkommer till Sign In fönstret
+        // Ska även spara destination så om man loggar in igen så ska den fortfarande synas
         private void btnSignOut_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = new();
+            MainWindow mainWindow = new(uManager, tManager);
 
-            Close();
             mainWindow.Show();
+            Close();
         }
 
         // Lägger till och sparar en ny resa
