@@ -135,7 +135,7 @@
             FontFamily="Arial"
             />
         <Label
-            x:Name="txtNewCountry"
+            Name="txtCountry"
             Grid.Column="4"
             Grid.Row="1"
             Grid.ColumnSpan="2"

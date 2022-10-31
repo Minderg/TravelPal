@@ -22,5 +22,12 @@ namespace TravelPal.Classes
             Password = password;
             Location = country;
         }
+        
+        // Kolla om du behöver denna för att skapa Gandalf usern
+        //public User(string username, string password)
+        //{
+        //    Username = username;
+        //    Password = password;
+        //}
     }
 }

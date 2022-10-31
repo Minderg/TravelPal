@@ -35,11 +35,9 @@ namespace TravelPal
             // Lägger till Länder i comboboxen
             cbUserDetails.ItemsSource = Enum.GetNames(typeof(Countries));
 
-            // 
             txtUsername.Content = uManager.SignedInUser.Username;
             txtPassword.Content = uManager.SignedInUser.Password;
-
-
+            txtCountry.Content = uManager.SignedInUser.Location;
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
@@ -55,12 +53,12 @@ namespace TravelPal
             // Hämtar innehållet i textrutorna
             string newUsername = txtNewUsername.Text;
             string newPassword = txtNewPassword.Text;
-            string newCountry = cbUserDetails.Text;
+            Countries newCountry = cbUserDetails.ItemsSource;
 
             // Sätter det till det nya som userna har skrivit
             uManager.SignedInUser.Username = newUsername;
             uManager.SignedInUser.Password = newPassword;
-            //uManager.SignedInUser. = newCountry;
+            uManager.SignedInUser.Location = newCountry; // Kolla på varför denna inte går igenom
         }
     }
 }

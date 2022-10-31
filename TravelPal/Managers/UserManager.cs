@@ -78,5 +78,12 @@ namespace TravelPal.Managers
             users.Add(admin);
         }
 
+        public void AddGandalf()
+        {
+            //User resa = new("Gandalf", "password");
+
+            //users.Add(resa);
+        }
+
     }
 }
