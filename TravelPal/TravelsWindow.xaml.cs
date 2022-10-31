@@ -115,7 +115,7 @@ namespace TravelPal
 
         private void btnUserDetails_Click(object sender, RoutedEventArgs e)
         {
-            UserDetails userDetails = new();
+            UserDetails userDetails = new(uManager, tManager);
 
             userDetails.Show();
             Close();

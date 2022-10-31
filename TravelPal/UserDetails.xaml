@@ -41,69 +41,103 @@
             Content="User Information"
             VerticalContentAlignment="Center"
             HorizontalContentAlignment="Center"
-            FontSize="17"
-            FontFamily="Arial"
-            />
-        <Label 
-            Grid.Column="1"
-            Grid.Row="1"
-            Content="Username"
-            VerticalContentAlignment="Center"
-            HorizontalContentAlignment="Center"
             FontSize="18"
-            FontFamily="Arial"
-            />
-        <Label 
-            Grid.Column="1"
-            Grid.Row="2"
-            Content="Password"
-            VerticalContentAlignment="Center"
-            HorizontalContentAlignment="Center"
-            FontSize="18"
-            FontFamily="Arial"
-            />
-        <Label 
-            Grid.Column="1"
-            Grid.Row="4"
-            Content="Country"
-            VerticalContentAlignment="Center"
-            HorizontalContentAlignment="Center"
-            FontSize="18"
-            FontFamily="Arial"
-            />
-        <TextBox 
-            Grid.Column="2"
-            Grid.Row="1"
-            Grid.ColumnSpan="2"
-            VerticalContentAlignment="Center"
-            HorizontalContentAlignment="Center"
-            FontSize="18"
-            Margin="10"
-            FontFamily="Arial"
-            />
-        <TextBox 
-            Grid.Column="2"
-            Grid.Row="2"
-            Grid.ColumnSpan="2"
-            VerticalContentAlignment="Center"
-            HorizontalContentAlignment="Center"
-            FontSize="18"
-            Margin="10"
             FontFamily="Arial"
             />
         <Label 
             Grid.Column="0"
+            Grid.Row="1"
+            Content="Username"
+            VerticalContentAlignment="Center"
+            HorizontalContentAlignment="Center"
+            FontSize="14"
+            FontFamily="Arial"
+            />
+        <Label 
+            Grid.Column="0"
+            Grid.Row="3"
+            Content="Password"
+            VerticalContentAlignment="Center"
+            HorizontalContentAlignment="Center"
+            FontSize="14"
+            FontFamily="Arial"
+            />
+        <Label 
+            Grid.Column="3"
+            Grid.Row="1"
+            Content="Country"
+            VerticalContentAlignment="Center"
+            HorizontalContentAlignment="Center"
+            FontSize="14"
+            FontFamily="Arial"
+            />
+        <Label
+            x:Name="txtUsername"
+            Grid.Column="1"
+            Grid.Row="1"
             Grid.ColumnSpan="3"
-            Grid.Row="2"
-            Content="Confirm Password"
             VerticalContentAlignment="Center"
             HorizontalContentAlignment="Center"
             FontSize="18"
-            FontFamily="Arial" Margin="33,62,81,0" Grid.RowSpan="2"
+            Margin="35,10,99,10"
+            FontFamily="Arial"
             />
-        <TextBox 
-            Grid.Column="2"
+        <Label
+            Grid.Row="1"
+            Grid.ColumnSpan="2"
+            Content="New Username"
+            VerticalContentAlignment="Center"
+            HorizontalContentAlignment="Center"
+            FontSize="14"
+            FontFamily="Arial" Margin="5,56,110,6" Grid.RowSpan="2"
+            />
+        <TextBox
+            Name="txtNewUsername"
+            Grid.Column="1"
+            Grid.Row="2"
+            Grid.ColumnSpan="3"
+            VerticalContentAlignment="Center"
+            HorizontalContentAlignment="Center"
+            FontSize="18"
+            Margin="35,10,99,10"
+            FontFamily="Arial"
+            />
+        <Label
+            Name="txtPassword"
+            Grid.Column="1"
             Grid.Row="3"
+            Grid.ColumnSpan="3"
+            VerticalContentAlignment="Center"
+            HorizontalContentAlignment="Center"
+            FontSize="18"
+            Margin="36,10,99,10"
+            FontFamily="Arial"
+            />
+        <Label 
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            Grid.Row="3"
+            Content="New Password"
+            VerticalContentAlignment="Center"
+            HorizontalContentAlignment="Center"
+            FontSize="14"
+            FontFamily="Arial" Margin="-53,62,53,0" Grid.RowSpan="2"
+            />
+        <TextBox
+            Name="txtNewPassword"
+            Grid.Column="1"
+            Grid.Row="4"
+            Grid.ColumnSpan="3"
+            VerticalContentAlignment="Center"
+            HorizontalContentAlignment="Center"
+            FontSize="18"
+            Margin="35,10,99,10"
+            FontFamily="Arial"
+            />
+        <Label
+            x:Name="txtNewCountry"
+            Grid.Column="4"
+            Grid.Row="1"
             Grid.ColumnSpan="2"
             VerticalContentAlignment="Center"
             HorizontalContentAlignment="Center"
@@ -111,48 +145,31 @@
             Margin="10"
             FontFamily="Arial"
             />
-        <ComboBox
-            Name="cbUserDetails"
-            Grid.Column="2"
-            Grid.Row="4"
-            Margin="20"          
+        <Label 
+            Grid.Column="3"
+            Grid.Row="1"
+            Content="New Country"
+            VerticalContentAlignment="Center"
+            HorizontalContentAlignment="Center"
+            FontSize="14"
+            FontFamily="Arial" Grid.ColumnSpan="2" Margin="5,62,109,0" Grid.RowSpan="2"
             />
 
-        <!--Change Password-->
-        <Button
+        <ComboBox
+            Name="cbUserDetails"
             Grid.Column="4"
             Grid.Row="2"
-            Content="Change"
-            Background="MintCream"
-            Margin="10">
-            <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="10"/>
-                </Style>
-            </Button.Resources>
-        </Button>
-
-        <!--Change Username-->
-        <Button
-            Grid.Column="4"
-            Grid.Row="1"
-            Content="Change"
-            Background="MintCream"
-            Margin="10">
-            <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="10"/>
-                </Style>
-            </Button.Resources>
-        </Button>
+            Margin="20,15,20,25"          
+            />
 
         <!--Save-->
         <Button
+            x:Name="btnSave"
             Grid.Column="2"
             Grid.Row="5"
             Content="Save"
             Background="MintCream"
-            Margin="10">
+            Margin="10,10,10,0" Height="42" VerticalAlignment="Top" Click="btnSave_Click">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10"/>
@@ -162,11 +179,13 @@
 
         <!--Cancel-->
         <Button
+            Name="btnBack"
             Grid.Column="3"
             Grid.Row="5"
             Content="Back"
             Background="MintCream"
-            Margin="10">
+            Margin="10"
+            Click="btnBack_Click">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10"/>

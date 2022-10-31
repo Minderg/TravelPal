@@ -26,14 +26,41 @@ namespace TravelPal
         private TravelManager tManager;
         private User user;
 
-        public UserDetails()
+        public UserDetails(UserManager uManager, TravelManager tManager)
         {
             InitializeComponent();
-
+            this.uManager = uManager;
+            this.tManager = tManager;
+           
             // Lägger till Länder i comboboxen
-
             cbUserDetails.ItemsSource = Enum.GetNames(typeof(Countries));
 
+            // 
+            txtUsername.Content = uManager.SignedInUser.Username;
+            txtPassword.Content = uManager.SignedInUser.Password;
+
+
+        }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            TravelsWindow travelsWindow = new(uManager, tManager);
+
+            travelsWindow.Show();
+            Close();
+        }
+
+        private void btnSave_Click(object sender, RoutedEventArgs e)
+        {
+            // Hämtar innehållet i textrutorna
+            string newUsername = txtNewUsername.Text;
+            string newPassword = txtNewPassword.Text;
+            string newCountry = cbUserDetails.Text;
+
+            // Sätter det till det nya som userna har skrivit
+            uManager.SignedInUser.Username = newUsername;
+            uManager.SignedInUser.Password = newPassword;
+            //uManager.SignedInUser. = newCountry;
         }
     }
 }
