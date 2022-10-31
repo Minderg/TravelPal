@@ -16,11 +16,12 @@ namespace TravelPal.Travels
         public Countries Country { get; set; }
         public int Travellers { get; set; }
 
-        public Travel(/*string destination, Countries country, int travellers*/)
+        // kolla med albin varför det smäller
+        public Travel(string destination, Countries country, int travellers)
         {
-            //Destination = destination;
-            //Country = country;
-            //Travellers = travellers;
+            Destination = destination;
+            Country = country;
+            Travellers = travellers;
         }
 
         public virtual string GetInfo()

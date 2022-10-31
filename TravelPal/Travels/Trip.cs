@@ -13,15 +13,10 @@ namespace TravelPal.Travels
         public List<Travel> travels = new();
 
         public TripTypes TripType { get; set; }
-        public int Travellers { get; set; }
-        public string Destination { get; set; }
-        public Countries Country { get; set; }
 
-        public Trip(int travellers, string destination, Countries country, TripTypes tripTypes)
+        public Trip(int travellers, string destination, Countries country, TripTypes tripTypes) : base(destination, country, travellers)
         {
-            Travellers = travellers;
-            Destination = destination;
-            Country = country;
+
             TripType = tripTypes;
         }
 

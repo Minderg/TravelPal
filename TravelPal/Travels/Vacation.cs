@@ -12,16 +12,10 @@ namespace TravelPal.Travels
         public List<Travel> travels = new();
 
         public bool AllInclusive { get; set; }
-        public string Destination { get; set; }
-        public Countries Country  { get; set; }
-        public int Travellers { get; set; }
 
-        public Vacation(bool allInclusive, string destination, Countries country, int travellers)
+        public Vacation(bool allInclusive, string destination, Countries country, int travellers) : base(destination, country, travellers)
         {
             AllInclusive = allInclusive;
-            Destination = destination;
-            Country = country;
-            Travellers = travellers;
 
         }
 

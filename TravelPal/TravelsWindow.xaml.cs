@@ -26,6 +26,7 @@ namespace TravelPal
         private UserManager uManager;
         private User user;
         private TravelManager tManager;
+        private TravelsDetailsWindow travelsDetailsWindow;
 
         public TravelsWindow(UserManager uManager, TravelManager tManager)
         {
@@ -85,7 +86,10 @@ namespace TravelPal
 
         private void btnDetails_Click(object sender, RoutedEventArgs e)
         {
+            TravelsDetailsWindow tDetailsWindow = new TravelsDetailsWindow();
 
+            tDetailsWindow.Show();
+            Close();
         }
     }
 }
