@@ -82,5 +82,10 @@ namespace TravelPal
             addTravel.Show();
             Close();    
         }
+
+        private void btnDetails_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

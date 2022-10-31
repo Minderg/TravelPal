@@ -112,12 +112,14 @@
         </Button>
         
         <!--Deatils-->
-        <Button 
+        <Button
+            Name="btnDetails"
             Grid.Column="1"
             Grid.Row="4"
             Content="Details "
             Margin="2"
-            Background="MintCream">
+            Background="MintCream"
+            Click="btnDetails_Click">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10"/>
