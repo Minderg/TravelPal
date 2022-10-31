@@ -112,5 +112,13 @@ namespace TravelPal
         {
 
         }
+
+        private void btnUserDetails_Click(object sender, RoutedEventArgs e)
+        {
+            UserDetails userDetails = new();
+
+            userDetails.Show();
+            Close();
+        }
     }
 }

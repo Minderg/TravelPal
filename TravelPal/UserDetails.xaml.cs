@@ -11,6 +11,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TravelPal.Classes;
+using TravelPal.Enums;
+using TravelPal.Managers;
 
 namespace TravelPal
 {
@@ -19,9 +22,18 @@ namespace TravelPal
     /// </summary>
     public partial class UserDetails : Window
     {
+        private UserManager uManager;
+        private TravelManager tManager;
+        private User user;
+
         public UserDetails()
         {
             InitializeComponent();
+
+            // Lägger till Länder i comboboxen
+
+            cbUserDetails.ItemsSource = Enum.GetNames(typeof(Countries));
+
         }
     }
 }

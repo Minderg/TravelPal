@@ -14,28 +14,39 @@
             </LinearGradientBrush>
         </Grid.Background>
         <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
         <!--User Details-->
         <Label 
+            Grid.Column="2"
+            Grid.ColumnSpan="3" 
+            Margin="15,5,99,57" 
+            Grid.RowSpan="2" 
+            Content="User Information"
+            VerticalContentAlignment="Center"
+            HorizontalContentAlignment="Center"
+            FontSize="17"
+            FontFamily="Arial"
+            />
+        <Label 
             Grid.Column="1"
-            Grid.Row="2"
+            Grid.Row="1"
             Content="Username"
             VerticalContentAlignment="Center"
             HorizontalContentAlignment="Center"
@@ -44,7 +55,7 @@
             />
         <Label 
             Grid.Column="1"
-            Grid.Row="3"
+            Grid.Row="2"
             Content="Password"
             VerticalContentAlignment="Center"
             HorizontalContentAlignment="Center"
@@ -62,6 +73,16 @@
             />
         <TextBox 
             Grid.Column="2"
+            Grid.Row="1"
+            Grid.ColumnSpan="2"
+            VerticalContentAlignment="Center"
+            HorizontalContentAlignment="Center"
+            FontSize="18"
+            Margin="10"
+            FontFamily="Arial"
+            />
+        <TextBox 
+            Grid.Column="2"
             Grid.Row="2"
             Grid.ColumnSpan="2"
             VerticalContentAlignment="Center"
@@ -69,7 +90,16 @@
             FontSize="18"
             Margin="10"
             FontFamily="Arial"
-            IsReadOnly="True"
+            />
+        <Label 
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+            Grid.Row="2"
+            Content="Confirm Password"
+            VerticalContentAlignment="Center"
+            HorizontalContentAlignment="Center"
+            FontSize="18"
+            FontFamily="Arial" Margin="33,62,81,0" Grid.RowSpan="2"
             />
         <TextBox 
             Grid.Column="2"
@@ -80,19 +110,18 @@
             FontSize="18"
             Margin="10"
             FontFamily="Arial"
-            IsReadOnly="True"
             />
         <ComboBox
             Name="cbUserDetails"
             Grid.Column="2"
             Grid.Row="4"
-            Margin="15"          
+            Margin="20"          
             />
-        
+
         <!--Change Password-->
         <Button
             Grid.Column="4"
-            Grid.Row="3"
+            Grid.Row="2"
             Content="Change"
             Background="MintCream"
             Margin="10">
@@ -106,7 +135,7 @@
         <!--Change Username-->
         <Button
             Grid.Column="4"
-            Grid.Row="2"
+            Grid.Row="1"
             Content="Change"
             Background="MintCream"
             Margin="10">
@@ -130,12 +159,12 @@
                 </Style>
             </Button.Resources>
         </Button>
-        
+
         <!--Cancel-->
         <Button
             Grid.Column="3"
             Grid.Row="5"
-            Content="Cancel"
+            Content="Back"
             Background="MintCream"
             Margin="10">
             <Button.Resources>

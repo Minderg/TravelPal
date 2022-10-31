@@ -46,7 +46,8 @@
             />
 
         <!--User Details-->
-        <Button 
+        <Button
+            Name="btnUserDetails"
             Grid.Column="5"
             Grid.Row="0"
             Content="User Details"
@@ -54,7 +55,8 @@
             HorizontalContentAlignment="Center"
             FontSize="16"
             Margin="10"
-            Background="MintCream">
+            Background="MintCream"
+            Click="btnUserDetails_Click">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10"/>
