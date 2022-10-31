@@ -16,7 +16,6 @@ namespace TravelPal.Travels
         public Countries Country { get; set; }
         public int Travellers { get; set; }
 
-        // kolla med albin varför det smäller
         public Travel(string destination, Countries country, int travellers)
         {
             Destination = destination;

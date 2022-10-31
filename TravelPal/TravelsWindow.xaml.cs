@@ -26,7 +26,8 @@ namespace TravelPal
         private UserManager uManager;
         private User user;
         private TravelManager tManager;
-        private TravelsDetailsWindow travelsDetailsWindow;
+        private Travel travel;
+     
 
         public TravelsWindow(UserManager uManager, TravelManager tManager)
         {
@@ -86,10 +87,23 @@ namespace TravelPal
 
         private void btnDetails_Click(object sender, RoutedEventArgs e)
         {
-            TravelsDetailsWindow tDetailsWindow = new TravelsDetailsWindow();
+            ListViewItem selectedItem = lvTravelInformation.SelectedItem as ListViewItem;
 
-            tDetailsWindow.Show();
-            Close();
+            if (selectedItem != null)
+            {
+                Travel selectedTravel = selectedItem.Tag as Travel;
+
+                TravelsDetailsWindow tDetailsWindow = new TravelsDetailsWindow();
+
+                tDetailsWindow.Show();
+                Close();
+            }
+            else
+            {
+
+                MessageBox.Show("Please select a travel");
+
+            }
         }
     }
 }
