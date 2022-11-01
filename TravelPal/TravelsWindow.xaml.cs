@@ -45,6 +45,7 @@ namespace TravelPal
             }
             else if(this.uManager.SignedInUser is Admin)
             {
+               
                 lbSeeUser.Content = $"Welcome Admin";
             }
             
@@ -106,11 +107,12 @@ namespace TravelPal
 
             }
         }
-
-        
+     
         private void btnRemove_Click(object sender, RoutedEventArgs e)
         {
             // Ska kunna bort en resa från List view fönstret
+
+            lvTravelInformation.Items.Remove(lvTravelInformation.SelectedItem);
         }
 
         // Ser till att man får upp UserDetails fönstret

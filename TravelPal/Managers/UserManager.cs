@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -48,11 +49,39 @@ namespace TravelPal.Managers
         {
             // Tar bort resor som users har lagt till(Admin bara)
         }
-        public bool UpdateUserName(string username, string password, Countries country)
+        public bool UpdateUserName(IUser users, string username)
         {
-            // Om usern vill byta namn
+           
+            if(username.Length < 3)
+            {
+                MessageBox.Show("Need a longer Username!");
+                return false;
+            }
+            else if(username == null)
+            {
+                MessageBox.Show("Need to fill in username");
+                return false;
+            }
+            else if(ValidateUserName(username) == false)
+            {
+                return false;
+            }
 
+            return true;
+        }
 
+        public bool UpdatePassword(string confirmPassword, string password)
+        {
+            if(password.Length < 5)
+            {
+                MessageBox.Show("Need a longer Password");
+                return false;
+            }
+            else if(confirmPassword == null)
+            {
+                MessageBox.Show("Need to fill in password");
+                return false;
+            }
             return true;
         }
 

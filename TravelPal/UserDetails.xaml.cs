@@ -57,24 +57,17 @@ namespace TravelPal
             string newPassword = txtNewPassword.Text;
             string confirmPassword = txtConfirmPassword.Text;
             string newcountry = cbUserDetails.Text;
-            Countries selectedCountry = (Countries)Enum.Parse(typeof(Countries), cbUserDetails.Text);
+            //Countries selectedCountry = (Countries)Enum.Parse(typeof(Countries), cbUserDetails.Text);
 
-            // Sätter det till det nya som userna har skrivit
-            uManager.SignedInUser.Username = newUsername;
-            uManager.SignedInUser.Password = newPassword;
-            uManager.SignedInUser.Location = selectedCountry; 
+            if(this.uManager.UpdateUserName(user, newUsername) && this.uManager.UpdatePassword(newPassword, confirmPassword))
+            {
+                // Sätter det till det nya som userna har skrivit
+                uManager.SignedInUser.Username = newUsername;
+                uManager.SignedInUser.Password = newPassword;
+                //uManager.SignedInUser.Location = selectedCountry;
 
-            //// Kollar om det nya lösen stämmer med det nya lösenordet
-            //if(newPassword.Length < 5 && confirmPassword == newPassword)
-            //{
-            //    // fixa så att när du skriver in det nya lösenordet i confirm password så ska det inte funka att spara! (ska komma upp en box att det inte stämmer med New password)!
-            //    MessageBox.Show("Need more letter in password");
-            //}
-
-            //else
-            //{
-            //    MessageBox.Show("Nice, you have a new password!");
-            //}
+                MessageBox.Show("You have saved you information!");
+            }
         }
     }
 }
