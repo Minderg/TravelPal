@@ -36,6 +36,7 @@ namespace TravelPal
             // Lägger till Länder i comboboxen
             cbUserDetails.ItemsSource = Enum.GetNames(typeof(Countries));
 
+            // Displayar vad usern har för username, password & country
             txtUsername.Content = uManager.SignedInUser.Username;
             txtPassword.Content = uManager.SignedInUser.Password;
             txtCountry.Content = uManager.SignedInUser.Location;
@@ -55,24 +56,25 @@ namespace TravelPal
             string newUsername = txtNewUsername.Text;
             string newPassword = txtNewPassword.Text;
             string confirmPassword = txtConfirmPassword.Text;
-            //string newcountry = cbUserDetails.SelectedItem as string;
+            string newcountry = cbUserDetails.Text;
+            Countries selectedCountry = (Countries)Enum.Parse(typeof(Countries), cbUserDetails.Text);
 
             // Sätter det till det nya som userna har skrivit
             uManager.SignedInUser.Username = newUsername;
             uManager.SignedInUser.Password = newPassword;
-            //uManager.SignedInUser.Location = selectedCountry; // Kolla på varför denna inte går igenom
+            uManager.SignedInUser.Location = selectedCountry; 
 
-            // Kollar om det nya lösen stämmer med det nya lösenordet
-            if(newPassword.Length < 5 && confirmPassword == newPassword)
-            {
-                // fixa så att när du skriver in det nya lösenordet i confirm password så ska det inte funka att spara! (ska komma upp en box att det inte stämmer med New password)!
-                MessageBox.Show("Need more letter in password");
-            }
-            else
-            {
-                
-                MessageBox.Show("Nice, you have a new password!");
-            }
+            //// Kollar om det nya lösen stämmer med det nya lösenordet
+            //if(newPassword.Length < 5 && confirmPassword == newPassword)
+            //{
+            //    // fixa så att när du skriver in det nya lösenordet i confirm password så ska det inte funka att spara! (ska komma upp en box att det inte stämmer med New password)!
+            //    MessageBox.Show("Need more letter in password");
+            //}
+
+            //else
+            //{
+            //    MessageBox.Show("Nice, you have a new password!");
+            //}
         }
     }
 }

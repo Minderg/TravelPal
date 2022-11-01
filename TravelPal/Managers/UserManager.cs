@@ -51,6 +51,8 @@ namespace TravelPal.Managers
         public bool UpdateUserName(string username, string password, Countries country)
         {
             // Om usern vill byta namn
+
+
             return true;
         }
 
