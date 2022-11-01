@@ -21,8 +21,8 @@ namespace TravelPal
     /// </summary>
     public partial class TravelsDetailsWindow : Window
     {
-        private readonly UserManager uManager;
-        private readonly TravelManager tManager;
+        private UserManager uManager;
+        private TravelManager tManager;
 
         // Får ut all information om en resa när man klickar på den i Travelswindow
         public TravelsDetailsWindow(UserManager uManager, TravelManager tManager, Travel travel)

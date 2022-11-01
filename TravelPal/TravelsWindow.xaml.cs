@@ -27,7 +27,7 @@ namespace TravelPal
         private User user;
         private TravelManager tManager;
         public List<Travel> travels = new();
-        public List<Travel> userTravels = new(); // Kanske ska ha denna resa
+        //public List<Travel> userTravels = new(); // Kanske ska ha denna resa
 
 
         public TravelsWindow(UserManager uManager, TravelManager tManager)
@@ -49,31 +49,31 @@ namespace TravelPal
                 lbSeeUser.Content = $"Welcome Admin";
             }
 
-            ShowTravels(tManager);
+            //ShowTravels(tManager);
 
             foreach (var travel in tManager.travels)
             {
-                //ListViewItem item = new();
-                //item.Content = travel.GetInfo();
-                //item.Tag = travel;
+                ListViewItem item = new();
+                item.Content = travel.GetInfo();
+                item.Tag = travel;
 
-                lvTravelInformation.Items.Add(travel.GetInfo());
+                lvTravelInformation.Items.Add(item);
             }
                 
         }
 
         // Ska bara visa Gandalf resor när man loggar in med han
-        public void ShowTravels(TravelManager t)
-        {
-            foreach (var travel in t.userTravels)
-            {
-                //ListViewItem item = new();
-                //item.Content = travel.GetInfo();
-                //item.Tag = travel;
+        //public void ShowTravels(TravelManager t)
+        //{
+        //    foreach (var travel in t.userTravels)
+        //    {
+        //        //ListViewItem item = new();
+        //        //item.Content = travel.GetInfo();
+        //        //item.Tag = travel;
 
-                lvTravelInformation.Items.Add(travel.GetInfo());
-            }
-        }
+        //        lvTravelInformation.Items.Add(travel.GetInfo());
+        //    }
+        //}
 
         // Poppar upp en ruta så man kan läsa hur man använder appen
         private void btnInfo_Click(object sender, RoutedEventArgs e)
@@ -103,6 +103,7 @@ namespace TravelPal
         }
 
         // Möjlig gör om man klickar på en resa så ska man kunna se mer detaljer om den
+        // Nu funkar inte Details knappen????????????????????????????????????????????????????????
         private void btnDetails_Click(object sender, RoutedEventArgs e)
         {
             ListViewItem selectedItem = lvTravelInformation.SelectedItem as ListViewItem;

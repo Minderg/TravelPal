@@ -32,7 +32,7 @@ namespace TravelPal
         {
             InitializeComponent();
 
-            this.uManager = new(tManager);
+            this.uManager = new();
 
         }
 

@@ -17,16 +17,15 @@ namespace TravelPal.Managers
         public List<IUser> users = new();
         public IUser SignedInUser { get; set; }  
         public List<Travel> travels = new();
-        public List<Travel> userTravels = new(); // Kanske ska ha denna
-        private TravelManager tManager;
+        //public List<Travel> userTravels = new(); // Kanske ska ha denna
 
-        public UserManager(TravelManager tManager)
+        public UserManager()
         {
             AddAdminUser();
-            AddGandalf();
+            //AddGandalf();
 
-            Vacation vacation = new(true, "Turkey", Enums.Countries.Turkey, 4);
-            tManager.userTravels.Add(vacation);
+            //Vacation vacation = new(true, "Turkey", Enums.Countries.Turkey, 4);
+            //tManager.userTravels.Add(vacation);
 
         }
 
@@ -120,7 +119,8 @@ namespace TravelPal.Managers
             
             users.Add(admin);     
         }
-
+        
+        // Adda Gandalf som en user
         public void AddGandalf()
         {
             User user = new("Gandalf", "password", Enums.Countries.Sweden);

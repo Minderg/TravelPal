@@ -11,7 +11,7 @@ namespace TravelPal.Managers
     public class TravelManager
     {
         public List<Travel> travels = new();
-        public List<Travel> userTravels = new(); // Kanske använder denna
+        //public List<Travel> userTravels = new(); // Kanske använder denna
 
         public Travel AddTravel(string destination, Countries countries, int travellers, TripTypes tripTypes)
         {
