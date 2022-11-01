@@ -147,13 +147,13 @@
 
         <!--BackButton-->
         <Button
-            Name="btBack"
+            Name="btnBack"
             Grid.Column="2"
             Grid.Row="5"
             Content="Back"
             Background="MintCream"
             Margin="10"
-            Click="btBack_Click">
+            Click="btnBack_Click">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10"/>

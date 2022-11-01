@@ -57,7 +57,7 @@ namespace TravelPal
             string newPassword = txtNewPassword.Text;
             string confirmPassword = txtConfirmPassword.Text;
             string newcountry = cbUserDetails.Text;
-            //Countries selectedCountry = (Countries)Enum.Parse(typeof(Countries), cbUserDetails.Text);
+            //Countries selectedCountry = (Countries)Enum.Parse(typeof(Countries), cbUserDetails.Text); // Fråga albin varför denna inte funkar
 
             if(this.uManager.UpdateUserName(user, newUsername) && this.uManager.UpdatePassword(newPassword, confirmPassword))
             {

@@ -9,8 +9,6 @@ namespace TravelPal.Travels
 {
     public class Vacation : Travel
     {
-        public List<Travel> travels = new();
-
         public bool AllInclusive { get; set; }
 
         public Vacation(bool allInclusive, string destination, Countries country, int travellers) : base(destination, country, travellers)

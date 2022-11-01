@@ -29,7 +29,6 @@ namespace TravelPal
         private UserManager uManager;
         public TravelManager tManager;
         private string SelectedTravelType;
-        private User user;
         public List<Travel> travels = new();
 
 
@@ -58,14 +57,6 @@ namespace TravelPal
             cbTripType.ItemsSource = tripTypes;
         }
 
-        // Kommer till TravelsWindow fönstret
-        private void btBack_Click(object sender, RoutedEventArgs e)
-        {
-            TravelsWindow travelsWindow = new(uManager, tManager);
-
-            travelsWindow.Show();
-            Close();
-        }
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
             bool isAllInclusive = false;
@@ -128,6 +119,15 @@ namespace TravelPal
                 cbTripType.Visibility = Visibility.Hidden;
                 xbAllInclusive.Visibility = Visibility.Visible;
             }
+        }
+
+        // Kommer till TravelsWindow fönstret
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            TravelsWindow travelsWindow = new(uManager, tManager);
+
+            travelsWindow.Show();
+            Close();
         }
     }
 }

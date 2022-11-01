@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using TravelPal.Classes;
 using TravelPal.Enums;
 
 namespace TravelPal.Travels
@@ -11,6 +12,9 @@ namespace TravelPal.Travels
     public class Travel
     {
         public List<Travel> travels = new();
+        public List<Travel> userTravels = new(); // Kanske ha denna 
+        public List<IUser> users = new();
+
 
         public string Destination { get; set; }
         public Countries Country { get; set; }

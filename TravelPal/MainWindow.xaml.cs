@@ -32,7 +32,8 @@ namespace TravelPal
         {
             InitializeComponent();
 
-            this.uManager = new();
+            this.uManager = new(tManager);
+
         }
 
         public MainWindow(UserManager uManager, TravelManager tManager)

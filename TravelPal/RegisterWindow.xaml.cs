@@ -47,6 +47,7 @@ namespace TravelPal
             Countries selectedCountry = (Countries)Enum.Parse(typeof(Countries), country);
 
             // Kollar om usern redan finns registrerad
+            // Kolla om jag kan använda mig om .Length också
             if (username.Count() == 0 || password.Count() == 0 || country.Count() == 0)
             {
                 MessageBox.Show("Username is invalid or already used!");

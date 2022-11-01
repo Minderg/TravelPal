@@ -11,6 +11,7 @@ namespace TravelPal.Travels
     public class Trip : Travel
     {
         public List<Travel> travels = new();
+        public List<Travel> userTravels = new(); // Kanske anväder denna 
 
         public TripTypes TripType { get; set; }
 

@@ -26,8 +26,9 @@ namespace TravelPal
         private UserManager uManager;
         private User user;
         private TravelManager tManager;
-        private Travel travel;
-     
+        public List<Travel> travels = new();
+        public List<Travel> userTravels = new(); // Kanske ska ha denna resa
+
 
         public TravelsWindow(UserManager uManager, TravelManager tManager)
         {
@@ -45,24 +46,39 @@ namespace TravelPal
             }
             else if(this.uManager.SignedInUser is Admin)
             {
-               
                 lbSeeUser.Content = $"Welcome Admin";
             }
-            
-            foreach(var travel in tManager.travels)
-            {
-                ListViewItem item = new();
-                item.Content = travel.GetInfo();
-                item.Tag = travel;
 
-                lvTravelInformation.Items.Add(item);
+            ShowTravels(tManager);
+
+            foreach (var travel in tManager.travels)
+            {
+                //ListViewItem item = new();
+                //item.Content = travel.GetInfo();
+                //item.Tag = travel;
+
+                lvTravelInformation.Items.Add(travel.GetInfo());
+            }
+                
+        }
+
+        // Ska bara visa Gandalf resor när man loggar in med han
+        public void ShowTravels(TravelManager t)
+        {
+            foreach (var travel in t.userTravels)
+            {
+                //ListViewItem item = new();
+                //item.Content = travel.GetInfo();
+                //item.Tag = travel;
+
+                lvTravelInformation.Items.Add(travel.GetInfo());
             }
         }
 
         // Poppar upp en ruta så man kan läsa hur man använder appen
         private void btnInfo_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Welcome to Travel Pal! The new app on the market to book any flight that you want. If you wanna add a destination," +
+            MessageBox.Show("Welcome to Travel Pal! The new app on the market to Add any flight that you want. If you wanna add a destination," +
                 " just click add and fill in the information that comes up, very simple and easy to use." +
                 " Whenever you have added a destination, you will see the information at the Travel Information, and the best thing is" +
                 " if you changed you mind on a trip, just click the destination that you want to remove and just click the remove button!" +
@@ -108,9 +124,9 @@ namespace TravelPal
             }
         }
      
+        // Kan ta bort vald resa
         private void btnRemove_Click(object sender, RoutedEventArgs e)
         {
-            // Ska kunna bort en resa från List view fönstret
 
             lvTravelInformation.Items.Remove(lvTravelInformation.SelectedItem);
         }

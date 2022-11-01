@@ -10,7 +10,8 @@ namespace TravelPal.Classes
 {
     public class User : IUser
     {
-        public List<Travel> travels = new();
+        public List<Travel> usersTravels = new();
+        public List<Travel> users = new();
 
         public string Username { get; set; }
         public string Password { get; set; }

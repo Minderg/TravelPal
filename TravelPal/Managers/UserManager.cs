@@ -15,19 +15,18 @@ namespace TravelPal.Managers
     public class UserManager
     {
         public List<IUser> users = new();
-        public IUser SignedInUser { get; set; }
+        public IUser SignedInUser { get; set; }  
+        public List<Travel> travels = new();
+        public List<Travel> userTravels = new(); // Kanske ska ha denna
+        private TravelManager tManager;
 
-        public UserManager()
+        public UserManager(TravelManager tManager)
         {
             AddAdminUser();
             AddGandalf();
 
-            //User user = new("Gandalf", "password", Enums.Countries.Sweden);
-
-            //Vacation vacation = new(true, "turkey", Enums.Countries.Turkey, 4);
-            //user.travels.Add(vacation);
-
-            //users.Add(user);
+            Vacation vacation = new(true, "Turkey", Enums.Countries.Turkey, 4);
+            tManager.userTravels.Add(vacation);
 
         }
 
@@ -49,6 +48,8 @@ namespace TravelPal.Managers
         {
             // Tar bort resor som users har lagt till(Admin bara)
         }
+
+        // Kollar längden på username & om det är ett tomt username
         public bool UpdateUserName(IUser users, string username)
         {
            
@@ -70,6 +71,7 @@ namespace TravelPal.Managers
             return true;
         }
 
+        // Kollar längden på lösenordet & om det är ett tomt lösenord
         public bool UpdatePassword(string confirmPassword, string password)
         {
             if(password.Length < 5)
@@ -115,18 +117,14 @@ namespace TravelPal.Managers
         public void AddAdminUser()
         {
             Admin admin = new("admin", "password");
-
-            users.Add(admin);
+            
+            users.Add(admin);     
         }
 
         public void AddGandalf()
         {
             User user = new("Gandalf", "password", Enums.Countries.Sweden);
             users.Add(user);
-
-            Vacation vacation = new(true, "turkey", Enums.Countries.Turkey, 4);
-            user.travels.Add(vacation);
         }
-
     }
 }
