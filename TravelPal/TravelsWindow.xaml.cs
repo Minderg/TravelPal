@@ -43,7 +43,7 @@ namespace TravelPal
                 this.user = this.uManager.SignedInUser as User;
                 lbSeeUser.Content = $"Welcome {this.user.Username}";
             }
-            else
+            else if(this.uManager.SignedInUser is Admin)
             {
                 lbSeeUser.Content = $"Welcome Admin";
             }
@@ -55,7 +55,6 @@ namespace TravelPal
                 item.Tag = travel;
 
                 lvTravelInformation.Items.Add(item);
-
             }
         }
 
@@ -70,7 +69,6 @@ namespace TravelPal
         }
 
         // Signar ut usern och återkommer till Sign In fönstret
-        // Ska även spara destination så om man loggar in igen så ska den fortfarande synas
         private void btnSignOut_Click(object sender, RoutedEventArgs e)
         {
             MainWindow mainWindow = new(uManager, tManager);
@@ -87,6 +85,7 @@ namespace TravelPal
             Close();    
         }
 
+        // Möjlig gör om man klickar på en resa så ska man kunna se mer detaljer om den
         private void btnDetails_Click(object sender, RoutedEventArgs e)
         {
             ListViewItem selectedItem = lvTravelInformation.SelectedItem as ListViewItem;
@@ -108,11 +107,13 @@ namespace TravelPal
             }
         }
 
+        
         private void btnRemove_Click(object sender, RoutedEventArgs e)
         {
-
+            // Ska kunna bort en resa från List view fönstret
         }
 
+        // Ser till att man får upp UserDetails fönstret
         private void btnUserDetails_Click(object sender, RoutedEventArgs e)
         {
             UserDetails userDetails = new(uManager, tManager);

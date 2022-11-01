@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,7 +33,6 @@ namespace TravelPal
             InitializeComponent();
 
             this.uManager = new();
-
         }
 
         public MainWindow(UserManager uManager, TravelManager tManager)
@@ -41,6 +41,7 @@ namespace TravelPal
 
             this.uManager = uManager;
             this.tManager = tManager;
+
         }
 
         // Signar in usern som har lagt in till Listan IUser
@@ -69,7 +70,6 @@ namespace TravelPal
             {
                 MessageBox.Show("The username or password was incorrect!");
             }
-
         }
 
         // RegisterWindow dyker upp så usern kan registrera sig

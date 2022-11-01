@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using TravelPal.Classes;
 using TravelPal.Enums;
+using TravelPal.Travels;
 
 namespace TravelPal.Managers
 {
@@ -18,6 +19,15 @@ namespace TravelPal.Managers
         public UserManager()
         {
             AddAdminUser();
+            AddGandalf();
+
+            //User user = new("Gandalf", "password", Enums.Countries.Sweden);
+
+            //Vacation vacation = new(true, "turkey", Enums.Countries.Turkey, 4);
+            //user.travels.Add(vacation);
+
+            //users.Add(user);
+
         }
 
         // Add an user to the list
@@ -80,9 +90,11 @@ namespace TravelPal.Managers
 
         public void AddGandalf()
         {
-            //User resa = new("Gandalf", "password");
+            User user = new("Gandalf", "password", Enums.Countries.Sweden);
+            users.Add(user);
 
-            //users.Add(resa);
+            Vacation vacation = new(true, "turkey", Enums.Countries.Turkey, 4);
+            user.travels.Add(vacation);
         }
 
     }

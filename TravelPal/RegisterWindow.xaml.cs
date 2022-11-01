@@ -21,8 +21,6 @@ namespace TravelPal
     /// </summary>
     public partial class RegisterWindow : Window
     {
-         
-
         private UserManager uManager;
         private TravelManager tManager;
         public RegisterWindow(UserManager uManager, TravelManager tManager)
@@ -36,8 +34,6 @@ namespace TravelPal
 
             this.uManager = uManager;
             this.tManager = tManager;
-
-
         }
 
         private void btnRegister_Click(object sender, RoutedEventArgs e)

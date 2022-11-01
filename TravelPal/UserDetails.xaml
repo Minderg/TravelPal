@@ -121,7 +121,21 @@
             VerticalContentAlignment="Center"
             HorizontalContentAlignment="Center"
             FontSize="14"
-            FontFamily="Arial" Margin="-53,62,53,0" Grid.RowSpan="2"
+            FontFamily="Arial" 
+            Margin="-53,62,53,0" 
+            Grid.RowSpan="2"
+            />
+        <Label 
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            Grid.Row="4"
+            Content="Confirm Password"
+            VerticalContentAlignment="Center"
+            HorizontalContentAlignment="Center"
+            FontSize="12"
+            FontFamily="Arial" 
+            Margin="-53,62,53,0" 
+            Grid.RowSpan="2"
             />
         <TextBox
             Name="txtNewPassword"
@@ -134,6 +148,18 @@
             Margin="35,10,99,10"
             FontFamily="Arial"
             />
+        <TextBox
+            Name="txtConfirmPassword"
+            Grid.Column="1"
+            Grid.Row="5"
+            Grid.ColumnSpan="3"
+            VerticalContentAlignment="Center"
+            HorizontalContentAlignment="Center"
+            FontSize="18"
+            Margin="35,10,99,10"
+            FontFamily="Arial"
+            />
+
         <Label
             Name="txtCountry"
             Grid.Column="4"
@@ -165,11 +191,11 @@
         <!--Save-->
         <Button
             x:Name="btnSave"
-            Grid.Column="2"
+            Grid.Column="3"
             Grid.Row="5"
             Content="Save"
             Background="MintCream"
-            Margin="10,10,10,0" Height="42" VerticalAlignment="Top" Click="btnSave_Click">
+            Margin="57,0,77,0" Height="42" VerticalAlignment="Center" Click="btnSave_Click" Grid.ColumnSpan="2">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10"/>
@@ -180,12 +206,12 @@
         <!--Cancel-->
         <Button
             Name="btnBack"
-            Grid.Column="3"
+            Grid.Column="4"
             Grid.Row="5"
             Content="Back"
             Background="MintCream"
-            Margin="10"
-            Click="btnBack_Click">
+            Margin="57,10,77,10"
+            Click="btnBack_Click" Grid.ColumnSpan="2">
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10"/>
