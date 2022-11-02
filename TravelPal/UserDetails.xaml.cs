@@ -60,6 +60,7 @@ namespace TravelPal
             string newcountry = cbUserDetails.Text;
             Countries selectedCountry = (Countries)Enum.Parse(typeof(Countries), newcountry);
 
+            // Gör så att man måste skriva in rätt password för att komma vidare
             if(this.uManager.UpdateUserName(user, newUsername) && this.uManager.UpdatePassword(newPassword, confirmPassword))
             {
                 // Sätter det till det nya som userna har skrivit
