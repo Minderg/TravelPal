@@ -93,6 +93,7 @@ namespace TravelPal.Managers
             {
                 if (user.Username == username)
                 {
+                    MessageBox.Show("User already exist!");
                     return false;
                 }
             }

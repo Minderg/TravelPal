@@ -51,7 +51,8 @@ namespace TravelPal
                 {
                     string country = cbRegister.SelectedItem as string;
                     Countries selectedCountry = (Countries)Enum.Parse(typeof(Countries), country);
-                    
+
+                                     
                     if (this.uManager.AddUser(username, password, selectedCountry))
                     {
                         MainWindow mainWindow = new(uManager, tManager);
@@ -63,7 +64,7 @@ namespace TravelPal
             }
             catch(ArgumentNullException)
             {
-                MessageBox.Show("Username is invalid or already used!");
+                MessageBox.Show("Need to choose a country");
             }
 
         }
