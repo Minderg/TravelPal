@@ -35,6 +35,7 @@ namespace TravelPal
             this.uManager = new();
             this.tManager = new();
 
+            // Loopar igenom user listan för users
             foreach(IUser iUser in uManager.users)
             {
                 if(iUser is User)

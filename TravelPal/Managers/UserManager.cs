@@ -37,12 +37,8 @@ namespace TravelPal.Managers
                 return false;
             }
         }
-        public void RemoveUser(string username, string password, Countries country)
-        {
-            // Tar bort resor som users har lagt till(Admin bara)
-        }
 
-        // Kollar längden på username & om det är ett tomt username
+        // Kollar längden på username & om det är ett tom username
         public bool UpdateUserName(IUser users, string username)
         {
            
@@ -92,13 +88,6 @@ namespace TravelPal.Managers
             }
             return true;
 
-        }
-
-        public bool SignInUser(string username, string password)
-        {
-            // Signar in usern
-
-            return true;
         }
 
         public List<IUser> GetAllUsers()

@@ -27,14 +27,12 @@ namespace TravelPal
         private User user;
         private TravelManager tManager;
         public List<Travel> travels = new();
-        //public List<Travel> userTravels = new(); // Kanske ska ha denna resa
-
-
+      
         public TravelsWindow(UserManager uManager, TravelManager tManager)
         {
             InitializeComponent();
 
-            // Visa vilken usern som är in inloggad
+            // Visa vilken usern som är in inloggad om det är en user eller Admin
 
             this.uManager = uManager;
             this.tManager = tManager;
@@ -68,24 +66,7 @@ namespace TravelPal
                     lvTravelInformation.Items.Add(item);
                 }
             }
-
-            //ShowTravels(tManager);
-
-
         }
-
-        // Ska bara visa Gandalf resor när man loggar in med han
-        //public void ShowTravels(TravelManager t)
-        //{
-        //    foreach (var travel in t.userTravels)
-        //    {
-        //        //ListViewItem item = new();
-        //        //item.Content = travel.GetInfo();
-        //        //item.Tag = travel;
-
-        //        lvTravelInformation.Items.Add(travel.GetInfo());
-        //    }
-        //}
 
         // Poppar upp en ruta så man kan läsa hur man använder appen
         private void btnInfo_Click(object sender, RoutedEventArgs e)

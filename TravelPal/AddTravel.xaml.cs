@@ -57,11 +57,11 @@ namespace TravelPal
             cbTripType.ItemsSource = tripTypes;
         }
 
+        // Savea det usern har skrivit in och skicka det vidare till Travelswindows listview
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
             bool isAllInclusive = false;
 
-            // Savea det usern har skrivit in och skicka det vidare till Travelswindows listview
             string country = cbAddCountry.SelectedItem as string;
             Countries selectedCountry = (Countries)Enum.Parse(typeof(Countries), country); // Omvandlar Country till en string
 

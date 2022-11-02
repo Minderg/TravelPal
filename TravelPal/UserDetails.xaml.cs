@@ -42,6 +42,7 @@ namespace TravelPal
             txtCountry.Content = uManager.SignedInUser.Location;
         }
 
+        // Kommer tillbaka till TravelsWindow
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
             TravelsWindow travelsWindow = new(uManager, tManager);
@@ -57,7 +58,7 @@ namespace TravelPal
             string newPassword = txtNewPassword.Text;
             string confirmPassword = txtConfirmPassword.Text;
             string newcountry = cbUserDetails.Text;
-            Countries selectedCountry = (Countries)Enum.Parse(typeof(Countries), newcountry); // Fråga albin varför denna inte funkar
+            Countries selectedCountry = (Countries)Enum.Parse(typeof(Countries), newcountry);
 
             if(this.uManager.UpdateUserName(user, newUsername) && this.uManager.UpdatePassword(newPassword, confirmPassword))
             {
