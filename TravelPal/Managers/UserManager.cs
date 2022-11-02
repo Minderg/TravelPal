@@ -63,14 +63,24 @@ namespace TravelPal.Managers
         // Kollar längden på lösenordet & om det är ett tomt lösenord
         public bool UpdatePassword(string confirmPassword, string password)
         {
-            if(password.Length < 5)
+            if (password.Length < 5)
             {
                 MessageBox.Show("Need a longer Password");
                 return false;
             }
-            else if(confirmPassword == null)
+            else if (confirmPassword == null)
             {
                 MessageBox.Show("Need to fill in password");
+                return false;
+            }
+            return true;
+        }
+
+        public bool Password(string password)
+        {
+            if (password.Length < 5)
+            {
+                MessageBox.Show("Need a longer Password");
                 return false;
             }
             return true;

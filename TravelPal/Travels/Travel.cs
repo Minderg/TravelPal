@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using TravelPal.Classes;
 using TravelPal.Enums;
+using TravelPal.Managers;
 
 namespace TravelPal.Travels
 {
@@ -30,7 +31,7 @@ namespace TravelPal.Travels
         public virtual string GetInfo()
         {
             // Hämta information angående resa
-            return $"Country | {Country}";
+            return $"User {users} | Country | {Country}";
         }
 
         public virtual string GetTravelType()

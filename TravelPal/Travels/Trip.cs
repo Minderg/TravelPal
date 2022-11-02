@@ -23,7 +23,7 @@ namespace TravelPal.Travels
         public override string GetInfo() // ska vara en override
         {
             // Ta reda på vad usern har valt för alternativ för resan
-            return $"Country | {base.Country}";
+            return $"User {users} | Country | {base.Country}";
         }
 
         public override string GetTravelType()

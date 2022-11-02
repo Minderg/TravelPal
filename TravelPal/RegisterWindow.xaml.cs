@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TravelPal.Classes;
 using TravelPal.Enums;
 using TravelPal.Managers;
 
@@ -23,6 +24,7 @@ namespace TravelPal
     {
         private UserManager uManager;
         private TravelManager tManager;
+        private User users;
         public RegisterWindow(UserManager uManager, TravelManager tManager)
         {
             InitializeComponent();
@@ -38,31 +40,32 @@ namespace TravelPal
 
         private void btnRegister_Click(object sender, RoutedEventArgs e)
         {
-            // Registrerar en användare
-            string username = txtUsername.Text;
-            string password = pswPassword.Password;
-            string country = cbRegister.Text;
+            try
+            {
+                // Registrerar en användare
+                string username = txtUsername.Text;
+                string password = pswPassword.Password;
 
-            // Omvandlar Country till en string
-            // Sätt in en Try Catch om man glömmer att välja land
-            Countries selectedCountry = (Countries)Enum.Parse(typeof(Countries), country);
-
-            // Kollar om usern redan finns registrerad
-            // Kolla om jag kan använda mig om .Length också
-            if (username.Count() == 0 || password.Count() == 0 || country.Count() == 0)
+                // Kollar om usern redan finns registrerad
+                if (this.uManager.UpdateUserName(users, username) && this.uManager.Password(password))
+                {
+                    string country = cbRegister.SelectedItem as string;
+                    Countries selectedCountry = (Countries)Enum.Parse(typeof(Countries), country);
+                    
+                    if (this.uManager.AddUser(username, password, selectedCountry))
+                    {
+                        MainWindow mainWindow = new(uManager, tManager);
+                        mainWindow.Show();
+                        Close();
+                    }
+                }
+               
+            }
+            catch(ArgumentNullException)
             {
                 MessageBox.Show("Username is invalid or already used!");
             }
-            else if (this.uManager.AddUser(username, password, selectedCountry))
-            {
-                MainWindow mainWindow = new(uManager, tManager);
-                mainWindow.Show();
-                Close();
-            }
-            else
-            {
-                MessageBox.Show("Username is invalid or already used!");
-            }
+
         }
     }
 }

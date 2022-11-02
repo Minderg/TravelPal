@@ -99,7 +99,7 @@ namespace TravelPal
                 user.usersTravels.Add(travel);
 
                 uManager.SignedInUser = user;
-                }
+            }
 
             TravelsWindow travelsWindow = new(uManager, tManager);
             travelsWindow.Show();

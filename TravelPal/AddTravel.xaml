@@ -124,7 +124,6 @@
             SelectionChanged="cbChoose_SelectionChanged"     
             />
 
-
         <CheckBox
             Name="xbAllInclusive"
             Grid.Column="4"
