@@ -36,10 +36,5 @@ namespace TravelPal.Managers
             travels.Add(vacation);
             return vacation;
         }
-
-        public void RemoveTravel(Travel travel)
-        {
-
-        }
     }
 }

@@ -26,14 +26,24 @@ namespace TravelPal
     public partial class MainWindow : Window
     {
         private UserManager uManager;
-        private TravelManager tManager = new();
+        private TravelManager tManager;
 
         public MainWindow()
         {
             InitializeComponent();
 
             this.uManager = new();
+            this.tManager = new();
 
+            foreach(IUser iUser in uManager.users)
+            {
+                if(iUser is User)
+                {
+                    User user = iUser as User;
+
+                    tManager.travels.AddRange(user.usersTravels);
+                }
+            }
         }
 
         public MainWindow(UserManager uManager, TravelManager tManager)

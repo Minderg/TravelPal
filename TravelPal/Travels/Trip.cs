@@ -30,5 +30,9 @@ namespace TravelPal.Travels
         {
             return "Trip";
         }
+        public override string GetTravelInfo()
+        {
+            return $"{TripType}";
+        }
     }
 }

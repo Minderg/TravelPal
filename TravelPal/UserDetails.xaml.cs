@@ -57,14 +57,16 @@ namespace TravelPal
             string newPassword = txtNewPassword.Text;
             string confirmPassword = txtConfirmPassword.Text;
             string newcountry = cbUserDetails.Text;
-            //Countries selectedCountry = (Countries)Enum.Parse(typeof(Countries), cbUserDetails.Text); // Fråga albin varför denna inte funkar
+            Countries selectedCountry = (Countries)Enum.Parse(typeof(Countries), newcountry); // Fråga albin varför denna inte funkar
 
             if(this.uManager.UpdateUserName(user, newUsername) && this.uManager.UpdatePassword(newPassword, confirmPassword))
             {
                 // Sätter det till det nya som userna har skrivit
                 uManager.SignedInUser.Username = newUsername;
                 uManager.SignedInUser.Password = newPassword;
-                //uManager.SignedInUser.Location = selectedCountry;
+                uManager.SignedInUser.Location = selectedCountry;
+
+                txtCountry.Content = uManager.SignedInUser.Location;
 
                 MessageBox.Show("You have saved you information!");
             }

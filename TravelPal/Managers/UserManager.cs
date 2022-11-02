@@ -16,17 +16,11 @@ namespace TravelPal.Managers
     {
         public List<IUser> users = new();
         public IUser SignedInUser { get; set; }  
-        public List<Travel> travels = new();
-        //public List<Travel> userTravels = new(); // Kanske ska ha denna
 
         public UserManager()
         {
             AddAdminUser();
-            //AddGandalf();
-
-            //Vacation vacation = new(true, "Turkey", Enums.Countries.Turkey, 4);
-            //tManager.userTravels.Add(vacation);
-
+            AddGandalf();
         }
 
         // Add an user to the list
@@ -125,6 +119,13 @@ namespace TravelPal.Managers
         {
             User user = new("Gandalf", "password", Enums.Countries.Sweden);
             users.Add(user);
+
+            Vacation vacation = new(true, "Ankara", Enums.Countries.Turkey, 4);
+            Trip trip = new(1, "Helsingfors", Enums.Countries.Finland, TripTypes.Work);
+
+            user.usersTravels.Add(vacation);
+            user.usersTravels.Add(trip);
+            
         }
     }
 }

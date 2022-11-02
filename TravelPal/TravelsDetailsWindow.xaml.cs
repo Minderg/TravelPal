@@ -35,6 +35,7 @@ namespace TravelPal
             txtDestination.Text = travel.Destination;
             txtTravelers.Text = travel.Travellers.ToString();
             txtTravelType.Text = travel.GetTravelType();
+            txtTravelInfo.Text = travel.GetTravelInfo();
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)

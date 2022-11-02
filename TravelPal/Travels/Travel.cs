@@ -37,5 +37,10 @@ namespace TravelPal.Travels
         {
             return "TravelType";
         }
+
+        public virtual string GetTravelInfo()
+        {
+            return "TravelType";
+        }
     } 
 }

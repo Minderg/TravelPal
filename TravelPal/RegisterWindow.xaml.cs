@@ -44,6 +44,7 @@ namespace TravelPal
             string country = cbRegister.Text;
 
             // Omvandlar Country till en string
+            // Sätt in en Try Catch om man glömmer att välja land
             Countries selectedCountry = (Countries)Enum.Parse(typeof(Countries), country);
 
             // Kollar om usern redan finns registrerad

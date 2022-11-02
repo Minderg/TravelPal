@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TravelPal.Classes;
 using TravelPal.Enums;
 
 namespace TravelPal.Travels
@@ -25,6 +26,19 @@ namespace TravelPal.Travels
         public override string GetTravelType()
         {
             return "Vacation";
+        }
+
+        public override string GetTravelInfo()
+        {
+            if (AllInclusive)
+            {
+                return "AllInclusive";
+            }
+            else
+            {
+                return "Not AllInclusive";
+            }
+            
         }
     }
 }

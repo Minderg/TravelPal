@@ -81,16 +81,25 @@ namespace TravelPal
                     isAllInclusive = true;
                 }
 
-                tManager.CreateVacation(destination, selectedCountry, travellers, isAllInclusive);
+                Travel travel =  tManager.CreateVacation(destination, selectedCountry, travellers, isAllInclusive);
 
+                User user = uManager.SignedInUser as User;
+                user.usersTravels.Add(travel);
+
+                uManager.SignedInUser = user;
             }
             // Checkar om vad man har checkat in checkboxen
             else if (cbChoose.SelectedIndex == 1)
             {
                 string trip = cbTripType.SelectedItem as string;
                 TripTypes selectedTrip = (TripTypes)Enum.Parse(typeof(TripTypes), trip);
-                tManager.CreateTrip(destination, selectedCountry, travellers, selectedTrip);
-            }
+                Travel travel = tManager.CreateTrip(destination, selectedCountry, travellers, selectedTrip);
+
+                User user = uManager.SignedInUser as User;
+                user.usersTravels.Add(travel);
+
+                uManager.SignedInUser = user;
+                }
 
             TravelsWindow travelsWindow = new(uManager, tManager);
             travelsWindow.Show();

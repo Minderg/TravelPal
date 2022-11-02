@@ -43,23 +43,35 @@ namespace TravelPal
             {
                 this.user = this.uManager.SignedInUser as User;
                 lbSeeUser.Content = $"Welcome {this.user.Username}";
+
+                User signedInUser = uManager.SignedInUser as User;
+
+                foreach (var travel in signedInUser.usersTravels)
+                {
+                    ListViewItem item = new();
+                    item.Content = travel.GetInfo();
+                    item.Tag = travel;
+
+                    lvTravelInformation.Items.Add(item);
+                }
             }
             else if(this.uManager.SignedInUser is Admin)
             {
                 lbSeeUser.Content = $"Welcome Admin";
+
+                foreach (var travel in tManager.travels)
+                {
+                    ListViewItem item = new();
+                    item.Content = travel.GetInfo();
+                    item.Tag = travel;
+
+                    lvTravelInformation.Items.Add(item);
+                }
             }
 
             //ShowTravels(tManager);
 
-            foreach (var travel in tManager.travels)
-            {
-                ListViewItem item = new();
-                item.Content = travel.GetInfo();
-                item.Tag = travel;
 
-                lvTravelInformation.Items.Add(item);
-            }
-                
         }
 
         // Ska bara visa Gandalf resor när man loggar in med han
@@ -103,7 +115,6 @@ namespace TravelPal
         }
 
         // Möjlig gör om man klickar på en resa så ska man kunna se mer detaljer om den
-        // Nu funkar inte Details knappen????????????????????????????????????????????????????????
         private void btnDetails_Click(object sender, RoutedEventArgs e)
         {
             ListViewItem selectedItem = lvTravelInformation.SelectedItem as ListViewItem;
@@ -128,8 +139,16 @@ namespace TravelPal
         // Kan ta bort vald resa
         private void btnRemove_Click(object sender, RoutedEventArgs e)
         {
+            ListViewItem itemToRemove = lvTravelInformation.SelectedItem as ListViewItem;
 
-            lvTravelInformation.Items.Remove(lvTravelInformation.SelectedItem);
+            lvTravelInformation.Items.Remove(itemToRemove);
+
+            Travel selectedTravel = itemToRemove.Tag as Travel;
+
+            tManager.travels.Remove(selectedTravel);
+
+            User signedInUser = uManager.SignedInUser as User;
+            signedInUser.usersTravels.Remove(selectedTravel);
         }
 
         // Ser till att man får upp UserDetails fönstret
