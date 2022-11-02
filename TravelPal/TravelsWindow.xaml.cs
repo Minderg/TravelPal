@@ -128,6 +128,7 @@ namespace TravelPal
 
             tManager.travels.Remove(selectedTravel);
 
+            // Går igenom listan user och tar bort den man har valt
             foreach(IUser user in uManager.users)
             {
                 if(user is User)
