@@ -31,7 +31,7 @@ namespace TravelPal.Travels
         public virtual string GetInfo()
         {
             // Hämta information angående resa
-            return $"User {users} | Country | {Country}";
+            return $"Country | {Country}";
         }
 
         public virtual string GetTravelType()

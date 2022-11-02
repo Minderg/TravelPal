@@ -128,8 +128,18 @@ namespace TravelPal
 
             tManager.travels.Remove(selectedTravel);
 
-            User signedInUser = uManager.SignedInUser as User;
-            signedInUser.usersTravels.Remove(selectedTravel);
+            foreach(IUser user in uManager.users)
+            {
+                if(user is User)
+                {
+                    User u = user as User;
+
+                    if (u.usersTravels.Contains(selectedTravel))
+                    {
+                        u.usersTravels.Remove(selectedTravel);
+                    }
+                }
+            }
         }
 
         // Ser till att man får upp UserDetails fönstret
