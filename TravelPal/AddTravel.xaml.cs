@@ -68,25 +68,22 @@ namespace TravelPal
             string destination = txtDestination.Text; // Skriver in vart man åker
             int travellers = Convert.ToInt32(txtTravelers.Text); // Skriver in hur många som ska åka
 
-            // Fixa så try/catch inte kraschar om man inte fyller i något
-            // Skriv något meddelande att dem måste fylla i allt
             try
             {
                 
-            // Checkar om vad man har checkat in checkboxen
+            // Checkar vad man har checkat in checkboxen
             if (cbChoose.SelectedIndex == 0)
             {
                 if ((bool)xbAllInclusive.IsChecked)
                 {
-                    isAllInclusive = true;
+                        isAllInclusive = true;                       
                 }
 
-                Travel travel =  tManager.CreateVacation(destination, selectedCountry, travellers, isAllInclusive);
+                    Travel travel = tManager.CreateVacation(destination, selectedCountry, travellers, isAllInclusive);    
+                    User user = uManager.SignedInUser as User;
+                    user.usersTravels.Add(travel);
 
-                User user = uManager.SignedInUser as User;
-                user.usersTravels.Add(travel);
-
-                uManager.SignedInUser = user;
+                    uManager.SignedInUser = user;  
             }
             // Checkar om vad man har checkat in checkboxen
             else if (cbChoose.SelectedIndex == 1)
@@ -100,16 +97,13 @@ namespace TravelPal
 
                 uManager.SignedInUser = user;
             }
-
-            TravelsWindow travelsWindow = new(uManager, tManager);
-            travelsWindow.Show();
-            Close();
+                TravelsWindow travelsWindow = new(uManager, tManager);
+                travelsWindow.Show();
+                Close();
             }
-            // Fixa så programet inte kraschar om man inte fyller i något
-            // Skriv något meddelande att dem måste fylla i allt
-            catch(Exception ex)
+            catch (ArgumentException)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Need to choose a country");
             }
         }
 
