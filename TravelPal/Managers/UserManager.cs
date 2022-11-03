@@ -98,7 +98,7 @@ namespace TravelPal.Managers
         {
             if (password.Length < 5)
             {
-                MessageBox.Show("Need a longer Password");
+                MessageBox.Show("Your password must consist of minimum 5 letters/numbers");
                 return false;
             }
             return true;
