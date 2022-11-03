@@ -13,7 +13,6 @@ namespace TravelPal.Travels
     public class Travel
     {
         public List<Travel> travels = new();
-        //public List<Travel> userTravels = new(); // Kanske ha denna 
         public List<IUser> users = new();
 
 
