@@ -56,6 +56,7 @@ namespace TravelPal
             else if(this.uManager.SignedInUser is Admin)
             {
                 lbSeeUser.Content = $"Welcome Admin";
+                btnAddDestination.Visibility = Visibility.Hidden;
 
                 foreach (var travel in tManager.travels)
                 {
