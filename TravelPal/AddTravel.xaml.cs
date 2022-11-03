@@ -60,18 +60,19 @@ namespace TravelPal
         // Savea det usern har skrivit in och skicka det vidare till Travelswindows listview
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            bool isAllInclusive = false;
-
-            string country = cbAddCountry.SelectedItem as string;
-            Countries selectedCountry = (Countries)Enum.Parse(typeof(Countries), country); // Omvandlar Country till en string
-
-            string destination = txtDestination.Text; // Skriver in vart man åker
-            int travellers = Convert.ToInt32(txtTravelers.Text); // Skriver in hur många som ska åka
-
             try
             {
+                bool isAllInclusive = false;
+
+                string country = cbAddCountry.SelectedItem as string;
+                Countries selectedCountry = (Countries)Enum.Parse(typeof(Countries), country); // Omvandlar Country till en string
+
+                string destination = txtDestination.Text; // Skriver in vart man åker
+                int travellers = Convert.ToInt32(txtTravelers.Text); // Skriver in hur många som ska åka
+
+
                 
-            // Checkar vad man har checkat in checkboxen
+            // Checkar vad man har checkat in checkboxen / All Inclusive eller inte
             if (cbChoose.SelectedIndex == 0)
             {
                 if ((bool)xbAllInclusive.IsChecked)
@@ -95,16 +96,18 @@ namespace TravelPal
                 User user = uManager.SignedInUser as User;
                 user.usersTravels.Add(travel);
 
+                    MessageBox.Show("Need to choose a trip");
                 uManager.SignedInUser = user;
             }
                 TravelsWindow travelsWindow = new(uManager, tManager);
                 travelsWindow.Show();
                 Close();
             }
-            catch (ArgumentException)
+            catch (ArgumentNullException)
             {
                 MessageBox.Show("Need to choose a country");
             }
+            
         }
 
         // Så man kan välja All Inclusive eller Work/Leisure
