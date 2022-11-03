@@ -68,37 +68,42 @@ namespace TravelPal
                 Countries selectedCountry = (Countries)Enum.Parse(typeof(Countries), country); // Omvandlar Country till en string
 
                 string destination = txtDestination.Text; // Skriver in vart man åker
+
                 int travellers = Convert.ToInt32(txtTravelers.Text); // Skriver in hur många som ska åka
 
 
-                
-            // Checkar vad man har checkat in checkboxen / All Inclusive eller inte
-            if (cbChoose.SelectedIndex == 0)
-            {
-                if ((bool)xbAllInclusive.IsChecked)
-                {
-                        isAllInclusive = true;                       
-                }
 
-                    Travel travel = tManager.CreateVacation(destination, selectedCountry, travellers, isAllInclusive);    
+                // Checkar vad man har checkat in checkboxen / All Inclusive eller inte
+                if (cbChoose.SelectedIndex == 0)
+                {
+
+                    //string country = cbAddCountry.SelectedItem as string; // Ta en kik på detta sen
+                    //Countries selectedCountry = (Countries)Enum.Parse(typeof(Countries), country);
+                    if ((bool)xbAllInclusive.IsChecked)
+                    {
+                        isAllInclusive = true;
+                    }
+
+                    Travel travel = tManager.CreateVacation(destination, selectedCountry, travellers, isAllInclusive);
                     User user = uManager.SignedInUser as User;
                     user.usersTravels.Add(travel);
 
-                    uManager.SignedInUser = user;  
-            }
-            // Checkar om vad man har checkat in checkboxen
-            else if (cbChoose.SelectedIndex == 1)
-            {
-                string trip = cbTripType.SelectedItem as string;
-                TripTypes selectedTrip = (TripTypes)Enum.Parse(typeof(TripTypes), trip);
-                Travel travel = tManager.CreateTrip(destination, selectedCountry, travellers, selectedTrip);
+                    uManager.SignedInUser = user;
+                }
 
-                User user = uManager.SignedInUser as User;
-                user.usersTravels.Add(travel);
 
-                    MessageBox.Show("Need to choose a trip");
-                uManager.SignedInUser = user;
-            }
+                // Checkar om vad man har checkat in checkboxen
+                else if (cbChoose.SelectedIndex == 1)
+                {
+                    string trip = cbTripType.SelectedItem as string;
+                    TripTypes selectedTrip = (TripTypes)Enum.Parse(typeof(TripTypes), trip);
+                    Travel travel = tManager.CreateTrip(destination, selectedCountry, travellers, selectedTrip);
+
+                    User user = uManager.SignedInUser as User;
+                    user.usersTravels.Add(travel);
+
+                    uManager.SignedInUser = user;
+                }
                 TravelsWindow travelsWindow = new(uManager, tManager);
                 travelsWindow.Show();
                 Close();
@@ -107,7 +112,11 @@ namespace TravelPal
             {
                 MessageBox.Show("Need to choose a country");
             }
-            
+            catch (FormatException)
+            {
+                MessageBox.Show("Need to write a destination!");
+            }
+
         }
 
         // Så man kan välja All Inclusive eller Work/Leisure

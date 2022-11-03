@@ -68,14 +68,32 @@ namespace TravelPal.Managers
                 MessageBox.Show("Your password must consist of minimum 6 letters/numbers");
                 return false;
             }
-            else if (confirmPassword == null)
+            else if (ConfirmPassword(password, confirmPassword)== false)
             {
-                MessageBox.Show("Need to fill in password");
                 return false;
             }
             return true;
         }
-
+        
+        public bool ConfirmPassword(string password, string confirmPassword)
+        {
+            if (string.IsNullOrEmpty(password))
+            {
+                MessageBox.Show("You need to confirm a password");
+                return false;
+            }
+            else if (string.IsNullOrEmpty(confirmPassword))
+            {
+                MessageBox.Show("You also need to enter a password");
+                return false;
+            }
+            else if(password != confirmPassword)
+            {
+                MessageBox.Show("Password doesn't match");
+                return false;
+            }
+            return true;
+        }
         public bool Password(string password)
         {
             if (password.Length < 5)

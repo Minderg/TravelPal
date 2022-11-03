@@ -59,8 +59,7 @@ namespace TravelPal
                         mainWindow.Show();
                         Close();
                     }
-                }
-               
+                }              
             }
             catch(ArgumentNullException)
             {

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics.Metrics;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -50,28 +51,38 @@ namespace TravelPal
             travelsWindow.Show();
             Close();
         }
-
+        
+        // När du klickar på spara så ändras all information som man har skrivit in
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            // Hämtar innehållet i textrutorna
-            string newUsername = txtNewUsername.Text;
-            string newPassword = txtNewPassword.Text;
-            string confirmPassword = txtConfirmPassword.Text;
-            string newcountry = cbUserDetails.Text;
-            Countries selectedCountry = (Countries)Enum.Parse(typeof(Countries), newcountry);
-
-            // Gör så att man måste skriva in rätt password för att komma vidare
-            if(this.uManager.UpdateUserName(user, newUsername) && this.uManager.UpdatePassword(newPassword, confirmPassword))
+            try
             {
-                // Sätter det till det nya som userna har skrivit
-                uManager.SignedInUser.Username = newUsername;
-                uManager.SignedInUser.Password = newPassword;
-                uManager.SignedInUser.Location = selectedCountry;
+                // Hämtar innehållet i textrutorna
+                string newUsername = txtNewUsername.Text;
+                string newPassword = txtNewPassword.Text;
+                string confirmPassword = txtConfirmPassword.Text;
 
-                txtCountry.Content = uManager.SignedInUser.Location;
+                
 
-                MessageBox.Show("You have saved you information!");
+                // Gör så att man måste skriva in rätt password för att komma vidare
+                if (this.uManager.UpdateUserName(user, newUsername) && this.uManager.UpdatePassword(newPassword, confirmPassword))
+                {
+                    // Sätter det till det nya som userna har skrivit
+                    
+                    string newcountry = cbUserDetails.Text;
+                    Countries selectedCountry = (Countries)Enum.Parse(typeof(Countries), newcountry);
+                    uManager.SignedInUser.Username = newUsername;
+                    uManager.SignedInUser.Password = newPassword;
+                    uManager.SignedInUser.Location = selectedCountry;
+
+                    txtCountry.Content = uManager.SignedInUser.Location;
+                    MessageBox.Show("You have saved you information!");
+                }
             }
+            catch (ArgumentException)
+            {
+                MessageBox.Show("Need a full registration to continue");
+            }      
         }
     }
 }
