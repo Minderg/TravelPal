@@ -62,6 +62,10 @@ namespace TravelPal
         {
             try
             {
+                if (!String.IsNullOrEmpty(txtDestination.Text))
+                {
+
+ 
                 bool isAllInclusive = false;
 
                 string country = cbAddCountry.SelectedItem as string;
@@ -99,6 +103,11 @@ namespace TravelPal
 
                     uManager.SignedInUser = user;
                 }
+                }
+                else
+                {
+                    throw new NullReferenceException();
+                }
                 TravelsWindow travelsWindow = new(uManager, tManager);
                 travelsWindow.Show();
                 Close();
@@ -110,6 +119,10 @@ namespace TravelPal
             catch (FormatException)
             {
                 MessageBox.Show("Need to enter numbers of travelers");
+            }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show("Need to fill in all information");
             }
         }
 

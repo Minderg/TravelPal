@@ -23,5 +23,10 @@ namespace TravelPal.Classes
             Password = password;
             Location = country;
         }
+
+        public string GetUserInfo()
+        {
+            return $" | User {Username}";
+        }
     }
 }

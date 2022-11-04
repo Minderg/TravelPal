@@ -47,7 +47,7 @@ namespace TravelPal
                 foreach (var travel in signedInUser.usersTravels)
                 {
                     ListViewItem item = new();
-                    item.Content = travel.GetInfo();
+                    item.Content = travel.GetInfo() + signedInUser.GetUserInfo();
                     item.Tag = travel;
 
                     lvTravelInformation.Items.Add(item);
@@ -57,6 +57,7 @@ namespace TravelPal
             {
                 lbSeeUser.Content = $"Welcome Admin";
                 btnAddDestination.Visibility = Visibility.Hidden;
+                btnUserDetails.Visibility = Visibility.Hidden;
 
                 foreach (var travel in tManager.travels)
                 {
